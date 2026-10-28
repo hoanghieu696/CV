@@ -418,10 +418,23 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  nav ul { gap: 10px; }
+  nav { padding: 14px 4%; }
+  nav ul { gap: 8px 12px; }
   nav a { font-size: 12px; }
-  .section { padding: 65px 5%; }
-  .profile-frame img { height: 380px; }
+  .hero {
+    min-height: auto;
+    padding: clamp(48px, 12vw, 64px) 5%;
+    gap: clamp(28px, 8vw, 40px);
+  }
+  .hero h1 { font-size: clamp(2.125rem, 10.5vw, 2.75rem); }
+  .hero p { font-size: 16px; }
+  .btn { padding: 12px 18px; }
+  .profile-frame { max-width: min(100%, 340px); }
+  .profile-frame img { height: clamp(260px, 85vw, 340px); }
+  .section { padding: clamp(48px, 12vw, 65px) 5%; }
+  .section-title { margin-bottom: clamp(24px, 7vw, 36px); }
+  .panel,
+  .card { padding: clamp(20px, 6vw, 26px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
