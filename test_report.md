@@ -1,35 +1,35 @@
 # Báo cáo kiểm thử
 
-- **Dự án:** Portfolio CV - Đỗ Minh Hiếu
-- **Ngày kiểm thử:** 27/10/2026
-- **Phạm vi:** Website tĩnh trong repository; kiểm tra trực quan bằng Microsoft Edge/Chromium trên Windows và rà soát mã nguồn.
-- **Kết quả tổng quan:** Trang hiển thị đúng trong các kích thước đã kiểm tra. Một số tiêu chí chỉ đạt một phần vì dự án không có bộ kiểm thử tự động, máy chủ ứng dụng hoặc môi trường Docker khả dụng để xác minh triển khai.
+- **Dự án:** Portfolio RGB Gaming - Đỗ Minh Hiếu
+- **Ngày kiểm thử:** 28/10/2026
+- **Phạm vi:** Kiểm tra mã nguồn `index.html`, liên kết điều hướng và ảnh cục bộ; mở trang bằng Google Chrome Headless để chụp giao diện ở kích thước máy tính và điện thoại.
+- **Kết quả tổng quan:** Trang tĩnh và các tài nguyên cục bộ hoạt động trong phạm vi đã kiểm tra. Giao diện điện thoại còn tràn ngang; các tiêu chí vận hành, bảo mật và triển khai chỉ được đánh giá ở mức cơ bản, không thay thế kiểm thử chuyên sâu.
 
-## Kết quả theo tiêu chí
+## Kết quả theo 6 tiêu chí
 
-| Tiêu chí | Kết quả | Kết quả kiểm tra và ghi chú |
+| Tiêu chí | Đánh giá | Kết quả kiểm tra và minh chứng |
 |---|---|---|
-| **Tính đúng đắn** | Đạt | Trang mở được; tiêu đề và bốn khu vực Giới thiệu, Kỹ năng, Dự án, Liên hệ hiện diện. Có 4 thẻ dự án. Cả 5 ảnh và stylesheet đều tải thành công. Các liên kết điều hướng trỏ đến các phần tương ứng có trong trang. |
-| **UI/UX** | Đạt trong phạm vi đã kiểm tra | Đã chụp giao diện ở màn hình máy tính 1365 × 900 và toàn trang ở chiều rộng viewport 390 CSS px. Bố cục thích ứng; kiểm tra ở viewport 390 CSS px không phát hiện tràn ngang. Có văn bản thay thế cho ảnh và trạng thái focus nhìn thấy được trong CSS. Chưa thực hiện đánh giá khả năng tiếp cận chuyên sâu. |
-| **Khả năng vận hành - xử lý lỗi** | Đạt một phần | Trang tĩnh và tài nguyên hiển thị bình thường khi mở cục bộ. Dự án không có mã xử lý lỗi phía ứng dụng, máy chủ hay biểu mẫu; chưa kiểm thử tình huống phục vụ lỗi, mất mạng hoặc thiếu tài nguyên. |
-| **Bảo mật** | Đạt trong phạm vi rà soát cơ bản | Rà soát mã nguồn cho thấy trang không có JavaScript chạy phía client, biểu mẫu nhập liệu, xử lý dữ liệu người dùng hoặc dịch vụ backend; stylesheet được lưu cục bộ. Đây không phải kiểm thử xâm nhập hay đánh giá bảo mật chuyên sâu. |
-| **Chất lượng mã nguồn** | Đạt một phần | HTML dùng các khu vực ngữ nghĩa, ảnh có `alt`, CSS được tách riêng và có breakpoint responsive. Chưa chạy HTML/CSS validator, linter hoặc bộ kiểm thử tự động; repository hiện không có cấu hình build/test cho website. |
-| **Khả năng triển khai** | Đạt một phần | Có thể mở trực tiếp `index.html`; README cũng hướng dẫn phục vụ bằng máy chủ tĩnh và Docker/Nginx. Chưa xác minh triển khai qua HTTP, nền tảng hosting hoặc Docker trong lần kiểm thử này; Docker không khả dụng trong môi trường kiểm thử và repository không có Dockerfile. |
+| **Tính đúng đắn** | Đạt trong phạm vi kiểm tra tĩnh | Tám liên kết điều hướng nội bộ đều trỏ đến ID có trong trang. Cả bốn đường dẫn ảnh trong `index.html` đều tồn tại trong repository. Trang gồm các phần Trang chủ, Giới thiệu, Học vấn, Kỹ năng, Dự án, Thư viện hình ảnh, Mục tiêu và Liên hệ. |
+| **UI/UX** | Đạt một phần | Đã chụp trang ở viewport 1365 × 900 và 390 × 844 CSS px. Giao diện máy tính hiển thị đúng. Ở chiều rộng điện thoại, menu và nội dung tiêu đề/giới thiệu bị cắt ở mép phải, cho thấy có tràn ngang; cần sửa CSS responsive trước khi xem là đạt. Ảnh tương ứng: [máy tính](docs/screenshots/portfolio-desktop.png) và [điện thoại](docs/screenshots/portfolio-mobile.png). |
+| **Khả năng vận hành - xử lý lỗi** | Đạt một phần | Đây là trang tĩnh, không có backend, biểu mẫu hay xử lý dữ liệu. Các ảnh được tham chiếu đều có trong repository. Chưa kiểm thử máy chủ HTTP, tình huống mất mạng, thiếu tệp sau triển khai hoặc thông báo lỗi cho người dùng. |
+| **Bảo mật** | Đạt trong phạm vi rà soát cơ bản | Mã trang không có biểu mẫu nhập liệu hoặc xử lý dữ liệu người dùng; hiệu ứng JavaScript cập nhật văn bản bằng `textContent`. Không thực hiện kiểm thử xâm nhập, quét lỗ hổng, kiểm tra cấu hình hosting hay đánh giá bảo mật toàn diện. |
+| **Chất lượng mã nguồn** | Đạt một phần | Trang sử dụng các phần tử HTML như `header`, `nav`, `main`, `section`, `footer`; ảnh có văn bản thay thế và CSS hỗ trợ `prefers-reduced-motion`. Tuy nhiên, phần lớn CSS được nhúng trực tiếp trong `index.html`; `assets/css/styles.css` không được trang liên kết sử dụng. Chưa chạy HTML/CSS validator, linter hoặc kiểm thử tự động. |
+| **Khả năng triển khai** | Đạt một phần | Trang mở được từ tệp cục bộ và dùng đường dẫn tương đối đến ảnh. Chưa xác minh qua HTTP server, hosting hoặc Docker trong lần kiểm thử này; repository không có Dockerfile hay cấu hình CI/CD. |
 
 ## Minh chứng hình ảnh
 
-Ảnh được chụp trực tiếp từ trang chạy trong trình duyệt, không chỉnh sửa nội dung giao diện.
+Ảnh được chụp mới từ phiên bản `index.html` hiện tại bằng Google Chrome Headless và lưu trong `docs/screenshots/`.
 
 ### Máy tính — viewport 1365 × 900
 
-![Giao diện portfolio ở kích thước máy tính](docs/screenshots/portfolio-desktop.png)
+![Ảnh chụp giao diện portfolio trên máy tính](docs/screenshots/portfolio-desktop.png)
 
-### Điện thoại — viewport 390 CSS px
+### Điện thoại — viewport 390 × 844
 
-![Giao diện portfolio ở kích thước điện thoại](docs/screenshots/portfolio-mobile.png)
+![Ảnh chụp giao diện portfolio trên điện thoại; thể hiện nội dung bị cắt ngang](docs/screenshots/portfolio-mobile.png)
 
-## Giới hạn của lần kiểm thử
+## Giới hạn và việc cần làm
 
-- Chỉ kiểm tra giao diện trong Microsoft Edge/Chromium trên Windows; chưa kiểm tra chéo trên macOS, Linux hoặc các trình duyệt khác.
-- Chưa có bộ test tự động, kiểm tra hiệu năng, xác thực HTML/CSS hay đánh giá bảo mật chuyên sâu.
-- Nội dung liên hệ và liên kết dự án trên trang là dữ liệu mẫu; cần thay bằng thông tin thực tế trước khi phát hành.
+- Cần khắc phục hiện tượng tràn ngang ở viewport điện thoại, sau đó chụp lại ảnh minh chứng và kiểm tra lại các kích thước nhỏ.
+- Chưa kiểm tra trên nhiều trình duyệt/hệ điều hành, chưa chạy validator hoặc bộ kiểm thử tự động.
+- Chưa thử nghiệm triển khai qua máy chủ HTTP hay nền tảng hosting; đánh giá bảo mật chỉ là rà soát mã nguồn cơ bản.
