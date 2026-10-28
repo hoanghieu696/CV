@@ -1,203 +1,792 @@
+
 <!DOCTYPE html>
-<!-- lang="vi" khai báo ngôn ngữ trang → hỗ trợ screen reader & SEO -->
 <html lang="vi">
-
 <head>
-  <!-- ========== METADATA BẮT BUỘC ========== -->
-  <meta charset="UTF-8" />
-  <!-- viewport: nền tảng của responsive mobile-first, khóa tỉ lệ 1:1 với thiết bị -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio CV của Nguyễn Văn An – Frontend Developer. Dự án, kỹ năng và thông tin liên hệ." />
-  <meta name="author" content="Nguyễn Văn An" />
-  <title>Nguyễn Văn An · Frontend Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio Gaming RGB của Đỗ Minh Hiếu">
+<title>Đỗ Minh Hiếu | RGB Portfolio</title>
 
-  <!-- Liên kết tới file CSS tách rời (yêu cầu của bài) -->
-  <link rel="stylesheet" href="./assets/css/styles.css" />
+<style>
+:root {
+  --bg: #050714;
+  --panel: #101629;
+  --cyan: #00f5ff;
+  --purple: #9b5cff;
+  --pink: #ff37b7;
+  --text: #f4f7ff;
+  --muted: #a7b3cf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Nền cyberpunk */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 15% 20%, #9b5cff35, transparent 35%),
+    radial-gradient(circle at 85% 70%, #00f5ff24, transparent 35%);
+  animation: glowMove 9s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#00f5ff0a 1px, transparent 1px),
+    linear-gradient(90deg, #00f5ff0a 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@keyframes glowMove {
+  to { filter: hue-rotate(65deg); transform: scale(1.12); }
+}
+
+/* Thanh menu */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #050714e8;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid #00f5ff55;
+}
+
+nav {
+  max-width: 1250px;
+  margin: auto;
+  padding: 17px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  color: var(--cyan);
+  font-size: 25px;
+  font-weight: 900;
+  text-shadow: 0 0 18px var(--cyan);
+  white-space: nowrap;
+}
+
+.logo span { color: var(--pink); }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 17px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: var(--cyan);
+  text-shadow: 0 0 12px var(--cyan);
+}
+
+/* Trang chủ */
+.hero {
+  max-width: 1250px;
+  min-height: 85vh;
+  margin: auto;
+  padding: 85px 5%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  letter-spacing: 3px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(45px, 7vw, 85px);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.rgb-text {
+  background: linear-gradient(
+    90deg,
+    var(--cyan),
+    var(--purple),
+    var(--pink),
+    var(--cyan)
+  );
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rgb 5s linear infinite;
+}
+
+@keyframes rgb {
+  to { background-position: 300%; }
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+
+.typing {
+  color: var(--cyan);
+  min-height: 30px;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 26px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.btn-main {
+  color: #050714;
+  background: linear-gradient(100deg, var(--cyan), var(--purple));
+  box-shadow: 0 0 24px #00f5ff55;
+}
+
+.btn-line {
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px #9b5cff88;
+}
+
+/* Ảnh cá nhân RGB */
+.profile-frame {
+  max-width: 390px;
+  width: 100%;
+  margin: auto;
+  padding: 5px;
+  border-radius: 28px;
+  background: linear-gradient(
+    45deg,
+    var(--cyan),
+    var(--purple),
+    var(--pink),
+    var(--cyan)
+  );
+  background-size: 300%;
+  animation: rgb 5s linear infinite, float 5s ease-in-out infinite;
+  box-shadow: 0 0 45px #9b5cff55;
+}
+
+.profile-frame img {
+  width: 100%;
+  height: 450px;
+  display: block;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 24px;
+  background: var(--panel);
+}
+
+@keyframes float {
+  50% { transform: translateY(-13px); }
+}
+
+/* Các section */
+.section {
+  max-width: 1250px;
+  margin: auto;
+  padding: 85px 5%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(30px, 5vw, 44px);
+  margin-bottom: 45px;
+}
+
+.section-title span { color: var(--cyan); }
+
+.panel {
+  background: #101629dd;
+  border: 1px solid #00f5ff44;
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 12px 35px #0004;
+}
+
+.panel p { color: var(--muted); }
+
+.info-grid,
+.skill-grid,
+.project-grid,
+.gallery-grid,
+.goal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.card {
+  background: #101629dd;
+  padding: 27px;
+  border: 1px solid #9b5cff55;
+  border-radius: 20px;
+  transition: transform .35s, box-shadow .35s, border-color .35s;
+}
+
+.card:hover {
+  transform: translateY(-9px);
+  border-color: var(--cyan);
+  box-shadow: 0 0 28px #00f5ff33;
+}
+
+.card .emoji {
+  font-size: 40px;
+  margin-bottom: 13px;
+}
+
+.card h3 {
+  color: var(--cyan);
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: #9b5cff24;
+  color: #d8c2ff;
+  font-size: 12px;
+  margin: 15px 5px 0 0;
+}
+
+.skill-bar {
+  margin-top: 18px;
+  height: 8px;
+  border-radius: 10px;
+  background: #27304c;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  width: var(--level);
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  box-shadow: 0 0 12px var(--cyan);
+}
+
+/* Thư viện ảnh */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid #9b5cff66;
+  background: var(--panel);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  transition: transform .5s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.07);
+}
+
+.gallery-caption {
+  padding: 15px;
+  text-align: center;
+  color: var(--cyan);
+}
+
+.gallery-placeholder {
+  height: 290px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #111a39, #3c1b64);
+  font-size: 70px;
+}
+
+/* Liên hệ */
+.contact {
+  text-align: center;
+}
+
+.contact p {
+  margin: 15px 0 25px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--muted);
+  border-top: 1px solid #9b5cff44;
+}
+
+/* Hiệu ứng cuộn */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity .7s, transform .7s;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  nav { flex-direction: column; }
+
+  nav ul { justify-content: center; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .buttons { justify-content: center; }
+
+  .info-grid,
+  .skill-grid,
+  .project-grid,
+  .gallery-grid,
+  .goal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .info-grid,
+  .skill-grid,
+  .project-grid,
+  .gallery-grid,
+  .goal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul { gap: 10px; }
+  nav a { font-size: 12px; }
+  .section { padding: 65px 5%; }
+  .profile-frame img { height: 380px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- ========================================================== -->
-  <!-- HEADER: nhận diện + điều hướng chính                        -->
-  <!-- ========================================================== -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <!-- Thương hiệu cá nhân -->
-      <a class="brand" href="#top" aria-label="Về đầu trang">
-        <span class="brand-mark" aria-hidden="true">A</span>
-        <span class="brand-name">Nguyễn Văn An</span>
-      </a>
+<header>
+  <nav>
+    <div class="logo">HIEU<span>.36</span></div>
+    <ul>
+      <li><a href="#home">Trang chủ</a></li>
+      <li><a href="#about">Giới thiệu</a></li>
+      <li><a href="#education">Học vấn</a></li>
+      <li><a href="#skills">Kỹ năng</a></li>
+      <li><a href="#projects">Dự án</a></li>
+      <li><a href="#gallery">Ảnh</a></li>
+      <li><a href="#goals">Mục tiêu</a></li>
+      <li><a href="#contact">Liên hệ</a></li>
+    </ul>
+  </nav>
+</header>
 
-      <!-- NAV dùng Flexbox (xem styles.css) -->
-      <nav class="main-nav" aria-label="Điều hướng chính">
-        <ul class="nav-list">
-          <li><a href="#about">Giới thiệu</a></li>
-          <li><a href="#skills">Kỹ năng</a></li>
-          <li><a href="#projects">Dự án</a></li>
-          <li><a href="#contact">Liên hệ</a></li>
-        </ul>
-      </nav>
+<main>
+
+<!-- TRANG CHỦ -->
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow">WELCOME TO MY DIGITAL WORLD</div>
+
+    <h1>
+      XIN CHÀO<br>
+      TÔI LÀ<br>
+      <span class="rgb-text">ĐỖ MINH HIẾU</span>
+    </h1>
+
+    <p class="typing" id="typing"></p>
+
+    <p>
+      Sinh viên Công nghệ thông tin<br>
+      Đại học Đại Nam<br>
+      Đam mê lập trình và thiết kế giao diện hiện đại.
+    </p>
+
+    <div class="buttons">
+      <a href="#projects" class="btn btn-main">🚀 Xem dự án</a>
+      <a href="#contact" class="btn btn-line">✉ Liên hệ</a>
     </div>
-  </header>
+  </div>
 
-  <!-- ========================================================== -->
-  <!-- MAIN: toàn bộ nội dung chính của trang                      -->
-  <!-- ========================================================== -->
-  <main id="top">
-    <!-- ----- SECTION: Giới thiệu / Hero ----- -->
-    <section id="about" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <p class="eyebrow">Xin chào, tôi là</p>
-          <h1 class="hero-title">Nguyễn Văn An</h1>
-          <p class="hero-role">Frontend Developer &amp; UI Enthusiast</p>
-          <p class="hero-desc">
-            Tôi xây dựng giao diện web sạch sẽ, dễ tiếp cận và responsive.
-            Tốt nghiệp ngành Công nghệ thông tin, yêu thích HTML/CSS ngữ nghĩa
-            và trải nghiệm người dùng tối giản.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Xem dự án</a>
-            <a class="btn btn-outline" href="#contact">Liên hệ tôi</a>
-          </div>
-        </div>
+  <div class="profile-frame">
+    <img src="assets/img/1792957209136_855100818377735852_4820312189864021908_4d5bf9b0778a6c3aacbe02ae985c5943.jpg" alt="Ảnh cá nhân">
+  </div>
+</section>
 
-        <!-- Ảnh đại diện: dùng placeholder, thay bằng ảnh thật của bạn -->
-        <figure class="hero-avatar">
-          <img
-            src="./assets/img/avatar.jpg"
-            alt="Ảnh đại diện của Nguyễn Văn An"
-            width="320" height="320" />
-        </figure>
-      </div>
-    </section>
+<!-- GIỚI THIỆU -->
+<section class="section reveal" id="about">
+  <h2 class="section-title">GIỚI THIỆU <span>BẢN THÂN</span></h2>
 
-    <!-- ----- SECTION: Kỹ năng ----- -->
-    <section id="skills" class="section">
-      <div class="container">
-        <h2 class="section-title">Kỹ năng</h2>
-        <p class="section-sub">Những công nghệ và kỹ năng tôi sử dụng thường xuyên.</p>
+  <div class="panel">
+    <h3>👋 Xin chào, tôi là Minh Hiếu!</h3>
+    <p>
+      Tôi hiện là sinh viên năm nhất ngành Công nghệ thông tin
+      tại Trường Đại học Đại Nam. Tôi yêu thích máy tính,
+      lập trình web và khám phá những công nghệ mới.
+      Tôi đang học cách xây dựng website bằng HTML,
+      CSS và JavaScript.
+    </p>
+    <p>
+      Tôi mong muốn phát triển khả năng tư duy logic,
+      giải quyết vấn đề, thiết kế giao diện và từng bước
+      trở thành lập trình viên chuyên nghiệp.
+    </p>
+  </div>
+</section>
 
-        <ul class="skill-grid">
-          <li class="skill-chip">HTML5</li>
-          <li class="skill-chip">CSS3 / Flexbox / Grid</li>
-          <li class="skill-chip">JavaScript (ES6+)</li>
-          <li class="skill-chip">Responsive Design</li>
-          <li class="skill-chip">Git &amp; GitHub</li>
-          <li class="skill-chip">Figma / Wireframe</li>
-        </ul>
-      </div>
-    </section>
+<!-- HỌC VẤN -->
+<section class="section reveal" id="education">
+  <h2 class="section-title">THÔNG TIN <span>HỌC VẤN</span></h2>
 
-    <!-- ----- SECTION: Dự án (danh sách thẻ dùng CSS Grid) ----- -->
-    <section id="projects" class="section section-muted">
-      <div class="container">
-        <h2 class="section-title">Dự án tiêu biểu</h2>
-        <p class="section-sub">Một vài sản phẩm tôi đã thực hiện.</p>
-
-        <!-- .project-grid dùng CSS Grid (xem styles.css) -->
-        <div class="project-grid">
-
-          <!-- Mỗi thẻ là một <article> độc lập, có thể đứng riêng -->
-          <article class="card">
-            <img class="card-media"
-              src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27600%27%20height%3D%27360%27%20viewBox%3D%270%200%20600%20360%27%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20fill%3D%27%23e2e8f0%27/%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2750%25%27%20font-family%3D%27Segoe%20UI%2C%20Arial%2C%20sans-serif%27%20font-size%3D%2744%27%20font-weight%3D%27700%27%20fill%3D%27%23334155%27%20text-anchor%3D%27middle%27%20dominant-baseline%3D%27middle%27%3EProject%201%3C/text%3E%3C/svg%3E"
-              alt="Ảnh minh họa dự án Landing Page" width="600" height="360" />
-            <div class="card-body">
-              <h3 class="card-title">Landing Page Sản Phẩm</h3>
-              <p class="card-desc">
-                Trang giới thiệu sản phẩm responsive, tối ưu tốc độ tải và SEO cơ bản.
-              </p>
-              <ul class="tag-list">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Grid</li>
-              </ul>
-              <a class="card-link" href="#">Xem chi tiết →</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <img class="card-media"
-              src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27600%27%20height%3D%27360%27%20viewBox%3D%270%200%20600%20360%27%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20fill%3D%27%23dbeafe%27/%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2750%25%27%20font-family%3D%27Segoe%20UI%2C%20Arial%2C%20sans-serif%27%20font-size%3D%2744%27%20font-weight%3D%27700%27%20fill%3D%27%231e40af%27%20text-anchor%3D%27middle%27%20dominant-baseline%3D%27middle%27%3EProject%202%3C/text%3E%3C/svg%3E"
-              alt="Ảnh minh họa dự án Todo App" width="600" height="360" />
-            <div class="card-body">
-              <h3 class="card-title">Ứng dụng Todo List</h3>
-              <p class="card-desc">
-                Ứng dụng quản lý công việc với lưu trữ cục bộ và giao diện tối giản.
-              </p>
-              <ul class="tag-list">
-                <li>JavaScript</li>
-                <li>Flexbox</li>
-              </ul>
-              <a class="card-link" href="#">Xem chi tiết →</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <img class="card-media"
-              src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27600%27%20height%3D%27360%27%20viewBox%3D%270%200%20600%20360%27%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20fill%3D%27%23ede9fe%27/%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2750%25%27%20font-family%3D%27Segoe%20UI%2C%20Arial%2C%20sans-serif%27%20font-size%3D%2744%27%20font-weight%3D%27700%27%20fill%3D%27%235b21b6%27%20text-anchor%3D%27middle%27%20dominant-baseline%3D%27middle%27%3EProject%203%3C/text%3E%3C/svg%3E"
-              alt="Ảnh minh họa dự án Weather Dashboard" width="600" height="360" />
-            <div class="card-body">
-              <h3 class="card-title">Weather Dashboard</h3>
-              <p class="card-desc">
-                Bảng điều khiển thời tiết lấy dữ liệu từ API công khai, hiển thị theo thẻ.
-              </p>
-              <ul class="tag-list">
-                <li>API</li>
-                <li>Grid</li>
-              </ul>
-              <a class="card-link" href="#">Xem chi tiết →</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <img class="card-media"
-              src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27600%27%20height%3D%27360%27%20viewBox%3D%270%200%20600%20360%27%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20fill%3D%27%23dcfce7%27/%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2750%25%27%20font-family%3D%27Segoe%20UI%2C%20Arial%2C%20sans-serif%27%20font-size%3D%2744%27%20font-weight%3D%27700%27%20fill%3D%27%23166534%27%20text-anchor%3D%27middle%27%20dominant-baseline%3D%27middle%27%3EProject%204%3C/text%3E%3C/svg%3E"
-              alt="Ảnh minh họa dự án Blog cá nhân" width="600" height="360" />
-            <div class="card-body">
-              <h3 class="card-title">Blog Cá Nhân</h3>
-              <p class="card-desc">
-                Blog tĩnh với bố cục dạng lưới, hỗ trợ đọc tốt trên mọi thiết bị.
-              </p>
-              <ul class="tag-list">
-                <li>HTML</li>
-                <li>CSS</li>
-              </ul>
-              <a class="card-link" href="#">Xem chi tiết →</a>
-            </div>
-          </article>
-
-        </div><!-- /.project-grid -->
-      </div>
-    </section>
-
-    <!-- ----- SECTION: Liên hệ ----- -->
-    <section id="contact" class="section">
-      <div class="container contact-inner">
-        <h2 class="section-title">Liên hệ</h2>
-        <p class="section-sub">Mở cho các cơ hội thực tập &amp; việc làm Frontend.</p>
-
-        <ul class="contact-list">
-          <li><span class="contact-label">Email</span> <a href="mailto:an.nguyen@example.com">an.nguyen@example.com</a></li>
-          <li><span class="contact-label">GitHub</span> <a href="#">github.com/nguyenvanan</a></li>
-          <li><span class="contact-label">LinkedIn</span> <a href="#">linkedin.com/in/nguyenvanan</a></li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ========================================================== -->
-  <!-- FOOTER                                                      -->
-  <!-- ========================================================== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 Nguyễn Văn An. Thiết kế &amp; xây dựng bằng HTML5 + CSS3.</p>
-      <a href="#top" class="to-top">↑ Lên đầu trang</a>
+  <div class="info-grid">
+    <div class="card">
+      <div class="emoji">🎓</div>
+      <h3>Trường đại học</h3>
+      <p>Đại học Đại Nam</p>
     </div>
-  </footer>
+
+    <div class="card">
+      <div class="emoji">💻</div>
+      <h3>Chuyên ngành</h3>
+      <p>Công nghệ thông tin</p>
+    </div>
+
+    <div class="card">
+      <div class="emoji">📚</div>
+      <h3>Lớp học</h3>
+      <p>CNTT 20-01</p>
+    </div>
+  </div>
+</section>
+
+<!-- KỸ NĂNG -->
+<section class="section reveal" id="skills">
+  <h2 class="section-title">KỸ NĂNG <span>LẬP TRÌNH</span></h2>
+
+  <p style="text-align:center;color:var(--muted);margin-bottom:25px">
+    Các thanh tiến độ dưới đây là số liệu minh họa,
+    có thể điều chỉnh theo trình độ thực tế.
+  </p>
+
+  <div class="skill-grid">
+    <div class="card">
+      <div class="emoji">🌐</div>
+      <h3>HTML5</h3>
+      <p>Xây dựng cấu trúc website.</p>
+      <div class="skill-bar">
+        <div class="skill-fill" style="--level:75%"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎨</div>
+      <h3>CSS3</h3>
+      <p>Thiết kế giao diện và hiệu ứng.</p>
+      <div class="skill-bar">
+        <div class="skill-fill" style="--level:65%"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">⚡</div>
+      <h3>JavaScript</h3>
+      <p>Tạo tương tác trên website.</p>
+      <div class="skill-bar">
+        <div class="skill-fill" style="--level:45%"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🔧</div>
+      <h3>Git & GitHub</h3>
+      <p>Quản lý mã nguồn.</p>
+      <div class="skill-bar">
+        <div class="skill-fill" style="--level:40%"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🖥️</div>
+      <h3>VS Code</h3>
+      <p>Môi trường viết và chỉnh sửa code.</p>
+      <div class="skill-bar">
+        <div class="skill-fill" style="--level:70%"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">📱</div>
+      <h3>Responsive</h3>
+      <p>Thiết kế web cho nhiều màn hình.</p>
+      <div class="skill-bar">
+        <div class="skill-fill" style="--level:55%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DỰ ÁN -->
+<section class="section reveal" id="projects">
+  <h2 class="section-title">DỰ ÁN <span>CÁ NHÂN</span></h2>
+
+  <div class="project-grid">
+    <article class="card">
+      <div class="emoji">🎮</div>
+      <h3>Gaming Portfolio</h3>
+      <p>
+        Website cá nhân với hiệu ứng RGB,
+        giao diện gaming và thiết kế responsive.
+      </p>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">JavaScript</span>
+    </article>
+
+    <article class="card">
+      <div class="emoji">📝</div>
+      <h3>Todo List</h3>
+      <p>
+        Ý tưởng ứng dụng quản lý công việc,
+        thêm, xóa và đánh dấu nhiệm vụ.
+      </p>
+      <span class="tag">Dự kiến</span>
+      <span class="tag">JavaScript</span>
+    </article>
+
+    <article class="card">
+      <div class="emoji">📊</div>
+      <h3>Dashboard</h3>
+      <p>
+        Ý tưởng giao diện bảng điều khiển,
+        hiển thị dữ liệu và biểu đồ.
+      </p>
+      <span class="tag">Dự kiến</span>
+      <span class="tag">CSS Grid</span>
+    </article>
+  </div>
+</section>
+
+<!-- THƯ VIỆN ẢNH -->
+<section class="section reveal" id="gallery">
+  <h2 class="section-title">THƯ VIỆN <span>HÌNH ẢNH</span></h2>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="assets/img/1793017724325_855100818377735852_4820312189864021908_c1c253bc86e4702eb01fc53d803b837d.jpg" alt="Ảnh cá nhân">
+      <div class="gallery-caption">Ảnh cá nhân</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="assets/img/OIP (6).webp" alt="Ảnh cá nhân">
+      <div class="gallery-caption">Góc lập trình</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="assets/img/OIP (7).webp" alt="Ảnh cá nhân">
+      <div class="gallery-caption">Gaming & Technology</div>
+    </div>
+  </div>
+</section>
+
+<!-- MỤC TIÊU -->
+<section class="section reveal" id="goals">
+  <h2 class="section-title">MỤC TIÊU <span>TƯƠNG LAI</span></h2>
+
+  <div class="goal-grid">
+    <div class="card">
+      <div class="emoji">🎯</div>
+      <h3>Ngắn hạn</h3>
+      <p>
+        Nắm vững HTML, CSS, JavaScript
+        và hoàn thành các dự án nhỏ.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🚀</div>
+      <h3>Trung hạn</h3>
+      <p>
+        Học React, làm việc nhóm,
+        xây dựng Portfolio chuyên nghiệp.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🏆</div>
+      <h3>Dài hạn</h3>
+      <p>
+        Trở thành lập trình viên có kỹ năng tốt,
+        tham gia các dự án thực tế.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- LIÊN HỆ -->
+<section class="section reveal" id="contact">
+  <h2 class="section-title">KẾT NỐI <span>VỚI TÔI</span></h2>
+
+  <div class="panel contact">
+    <h2>LET'S CREATE SOMETHING AMAZING!</h2>
+    <p>
+      Cùng học hỏi, chia sẻ kiến thức
+      và khám phá thế giới công nghệ.
+    </p>
+    <p>
+      Email: hieuco696@gmail.com
+    </p>
+    <a href="mailto:hieuco696@gmail.com" class="btn btn-main">
+      ✉ Gửi email
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Đỗ Minh Hiếu | RGB Gaming Portfolio
+</footer>
+
+<script>
+// Hiệu ứng gõ chữ
+const words = [
+  "Frontend Developer",
+  "IT Student",
+  "Web Design Enthusiast",
+  "Future Software Developer"
+];
+
+const typing = document.getElementById("typing");
+const reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+if (reduceMotion) {
+  typing.textContent = words[0];
+} else {
+  let wordIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function typeText() {
+    const word = words[wordIndex];
+
+    if (deleting) {
+      charIndex--;
+    } else {
+      charIndex++;
+    }
+
+    typing.textContent = word.substring(0, charIndex) + "|";
+
+    let delay = deleting ? 55 : 100;
+
+    if (!deleting && charIndex === word.length) {
+      deleting = true;
+      delay = 1400;
+    } else if (deleting && charIndex === 0) {
+      deleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      delay = 400;
+    }
+
+    setTimeout(typeText, delay);
+  }
+
+  typeText();
+}
+
+// Hiệu ứng xuất hiện khi cuộn
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window && !reduceMotion) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  revealElements.forEach(el => observer.observe(el));
+} else {
+  revealElements.forEach(el => el.classList.add("show"));
+}
+</script>
 
 </body>
-
 </html>
