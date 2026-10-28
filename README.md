@@ -1,6 +1,6 @@
-# Portfolio CV - Nguyễn Văn An
+# Portfolio CV - Đỗ Minh Hiếu
 
-Trang portfolio/CV cá nhân giới thiệu Nguyễn Văn An với vai trò Frontend Developer. Dự án là một website tĩnh, trình bày thông tin cá nhân, kỹ năng, các dự án tiêu biểu và kênh liên hệ; giao diện được thiết kế responsive để sử dụng trên máy tính, máy tính bảng và điện thoại.
+Trang portfolio/CV cá nhân giới thiệu Đỗ Minh Hiếu với vai trò Frontend Developer. Dự án là một website tĩnh, trình bày thông tin cá nhân, kỹ năng, các dự án tiêu biểu và kênh liên hệ; giao diện được thiết kế responsive để sử dụng trên máy tính, máy tính bảng và điện thoại.
 
 ## Chức năng
 
@@ -47,7 +47,7 @@ Website không cần biến môi trường hay bước cài đặt thư viện. 
 1. Chỉnh sửa tên, phần giới thiệu, kỹ năng, dự án và thông tin liên hệ trong `index.html`.
 2. Thay ảnh `assets/img/avatar.jpg` bằng ảnh của bạn; nên giữ nguyên tên và đường dẫn, hoặc cập nhật thuộc tính `src` trong `index.html`.
 3. Chỉnh màu sắc, kiểu chữ và bố cục trong `assets/css/styles.css`.
-4. Thay các liên kết mẫu `href="#"`, email `an.nguyen@example.com` và hồ sơ mạng xã hội bằng địa chỉ thật. Những liên kết `#` hiện chưa dẫn đến trang dự án.
+4. Thay các liên kết mẫu `href="#"`, email ` và hồ sơ mạng xã hội bằng địa chỉ thật. Những liên kết `#` hiện chưa dẫn đến trang dự án.
 
 Các đường dẫn tài nguyên trong HTML là đường dẫn tương đối. Vì vậy, hãy giữ cấu trúc thư mục `assets/css` và `assets/img` khi sao chép hoặc triển khai website.
 
@@ -57,7 +57,7 @@ Các đường dẫn tài nguyên trong HTML là đường dẫn tương đối.
 
 Mở PowerShell tại thư mục dự án và chạy một trong các cách sau:
 
-- Nhanh nhất: mở `index.html` bằng trình duyệt.
+- Nhanh nhất: mở `hieuco696@gmail.com`index.html` bằng trình duyệt.
 - Dùng máy chủ HTTP cục bộ (Python 3):
 
 ```powershell
@@ -130,8 +130,8 @@ Khi container hoạt động, mở <http://localhost:8080>. Dừng container b�
 Thông tin đang được hiển thị trong trang:
 
 - Tên: Nguyễn Văn An
-- Email mẫu: `an.nguyen@example.com`
-- GitHub mẫu: `github.com/nguyenvanan`
-- LinkedIn mẫu: `linkedin.com/in/nguyenvanan`
+- Email mẫu: `hieuco696@gmail.com`
+- GitHub mẫu: `github.com/hoanghieu696`
+- SDT: `0325466955`
 
 Đây là thông tin minh họa trong mã nguồn, không xác nhận là địa chỉ liên hệ thực. Hãy cập nhật thông tin của chủ dự án trong `index.html` trước khi sử dụng hoặc công khai website.
