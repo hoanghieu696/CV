@@ -1,137 +1,169 @@
-# Portfolio CV - Đỗ Minh Hiếu
+# Portfolio RGB Gaming - Đỗ Minh Hiếu
 
-Trang portfolio/CV cá nhân giới thiệu Đỗ Minh Hiếu với vai trò Frontend Developer. Dự án là một website tĩnh, trình bày thông tin cá nhân, kỹ năng, các dự án tiêu biểu và kênh liên hệ; giao diện được thiết kế responsive để sử dụng trên máy tính, máy tính bảng và điện thoại.
+Website portfolio cá nhân theo phong cách gaming/RGB, giới thiệu Đỗ Minh Hiếu, thông tin học vấn, kỹ năng, dự án, mục tiêu và cách liên hệ. Đây là website tĩnh, có thể mở trực tiếp bằng trình duyệt hoặc phục vụ bằng máy chủ HTTP và Docker.
 
 ## Chức năng
 
-- Thanh điều hướng đến các phần Giới thiệu, Kỹ năng, Dự án và Liên hệ.
-- Giới thiệu cá nhân, vị trí công việc và ảnh đại diện.
-- Hiển thị danh sách kỹ năng và các dự án dưới dạng thẻ.
-- Cung cấp các liên kết liên hệ qua email, GitHub và LinkedIn.
-- Bố cục responsive, hỗ trợ điều hướng bằng bàn phím và cuộn mượt.
+- Thanh điều hướng đến Trang chủ, Giới thiệu, Học vấn, Kỹ năng, Dự án, Thư viện hình ảnh, Mục tiêu và Liên hệ.
+- Giới thiệu cá nhân, ảnh đại diện, trường học và chuyên ngành.
+- Trình bày các kỹ năng, dự án mẫu, hình ảnh và mục tiêu cá nhân.
+- Hiển thị hiệu ứng chữ gõ và hiệu ứng xuất hiện nội dung khi cuộn trang.
+- Tôn trọng thiết lập giảm chuyển động (`prefers-reduced-motion`) của hệ điều hành.
+- Liên kết gửi email qua `mailto:`.
 
-> Đây là trang giới thiệu tĩnh, không có máy chủ ứng dụng, cơ sở dữ liệu hay chức năng gửi biểu mẫu. Các đường dẫn dự án và thông tin liên hệ hiện là nội dung mẫu; hãy cập nhật trước khi phát hành.
+> Đây là dự án frontend tĩnh: không có máy chủ ứng dụng, cơ sở dữ liệu hay biểu mẫu gửi dữ liệu. Một số dự án trong trang là ý tưởng minh họa, không phải liên kết tới ứng dụng đã triển khai.
 
-## Công nghệ sử dụng
+## Công nghệ
 
-- HTML5: cấu trúc và nội dung trang.
-- CSS3: giao diện, responsive, Flexbox và CSS Grid.
-- Ảnh đại diện lưu tại `assets/img/avatar.jpg`; stylesheet tại `assets/css/styles.css`.
-- Nginx (tùy chọn): phục vụ website khi chạy bằng Docker.
-
-JavaScript được nhắc đến trong danh sách kỹ năng hiển thị trên trang, nhưng hiện không cần JavaScript để chạy website này.
+- **HTML5:** cấu trúc và nội dung trang.
+- **CSS3:** giao diện, hiệu ứng, chuyển động và bố cục responsive; phần lớn CSS được viết bên trong `index.html`.
+- **JavaScript thuần:** hiệu ứng gõ chữ và hiển thị nội dung khi cuộn; không cần thư viện hoặc framework ngoài.
+- **Google Chrome Headless:** đã dùng để chụp ảnh minh chứng giao diện trong `docs/screenshots/`.
+- **Nginx và Docker (tùy chọn):** phục vụ website trong container.
 
 ## Yêu cầu môi trường
 
-- Trình duyệt hiện đại như Chrome, Firefox, Edge hoặc Safari.
-- Git nếu muốn tải mã nguồn bằng lệnh.
-- Python 3 chỉ cần nếu muốn chạy máy chủ HTTP cục bộ theo hướng dẫn bên dưới. Có thể mở trực tiếp `index.html` mà không cần cài Python.
-- Docker Desktop trên Windows/macOS hoặc Docker Engine trên Linux nếu chọn cách chạy bằng Docker.
-- Không yêu cầu Node.js, npm, cơ sở dữ liệu hoặc tệp cấu hình môi trường.
+Để xem trang:
+
+- Trình duyệt hiện đại như Google Chrome, Microsoft Edge, Firefox hoặc Safari.
+
+Để tải mã nguồn:
+
+- Git, hoặc tải repository dưới dạng tệp ZIP.
+
+Để chạy bằng máy chủ cục bộ:
+
+- Python 3 (tùy chọn). Có thể mở `index.html` trực tiếp mà không cần cài Python.
+
+Để chạy bằng Docker:
+
+- Docker Desktop trên Windows/macOS hoặc Docker Engine trên Linux.
+- Kết nối Internet khi cần tải image `nginx:alpine` lần đầu.
+
+Không cần cài Node.js, npm, cơ sở dữ liệu hoặc cấu hình biến môi trường.
 
 ## Cài đặt mã nguồn
 
-Tải hoặc clone repository về máy, sau đó chuyển vào thư mục dự án:
+### Windows — PowerShell
 
-```bash
-git clone <URL-repository>
+```powershell
+git clone https://github.com/hoanghieu696/CV.git
+Set-Location CV
+```
+
+### Windows — Command Prompt
+
+```cmd
+git clone https://github.com/hoanghieu696/CV.git
 cd CV
 ```
 
-Thay `<URL-repository>` bằng địa chỉ Git thực tế. Nếu đã tải mã nguồn dưới dạng ZIP, hãy giải nén và mở thư mục `CV` trong Terminal/PowerShell.
+### macOS và Linux
+
+Mở Terminal:
+
+```bash
+git clone https://github.com/hoanghieu696/CV.git
+cd CV
+```
+
+Nếu tải repository dưới dạng ZIP, hãy giải nén rồi mở thư mục dự án bằng PowerShell, Command Prompt hoặc Terminal.
 
 ## Cấu hình và tùy chỉnh
 
-Website không cần biến môi trường hay bước cài đặt thư viện. Để cá nhân hóa nội dung:
+Website không yêu cầu tệp `.env`, cài đặt thư viện hoặc bước build. Nội dung và kiểu dáng có thể chỉnh trực tiếp trong repository:
 
-1. Chỉnh sửa tên, phần giới thiệu, kỹ năng, dự án và thông tin liên hệ trong `index.html`.
-2. Thay ảnh `assets/img/avatar.jpg` bằng ảnh của bạn; nên giữ nguyên tên và đường dẫn, hoặc cập nhật thuộc tính `src` trong `index.html`.
-3. Chỉnh màu sắc, kiểu chữ và bố cục trong `assets/css/styles.css`.
-4. Thay các liên kết mẫu `href="#"`, email ` và hồ sơ mạng xã hội bằng địa chỉ thật. Những liên kết `#` hiện chưa dẫn đến trang dự án.
+1. Mở `index.html` để thay tên, phần giới thiệu, học vấn, kỹ năng, dự án, mục tiêu và thông tin liên hệ.
+2. Cập nhật các thẻ `<title>` và `meta description` ở đầu tệp để phù hợp với nội dung mới.
+3. Thay ảnh trong `assets/img/` hoặc cập nhật các đường dẫn `src` tương ứng trong `index.html`. Giữ ảnh trong repository và dùng đường dẫn tương đối để trang tải được khi triển khai.
+4. Chỉnh CSS trong thẻ `<style>` của `index.html` để thay màu sắc, bố cục và hiệu ứng. Tệp `assets/css/styles.css` hiện không được trang liên kết sử dụng.
+5. Nếu sửa các mục điều hướng, bảo đảm giá trị `href="#..."` khớp với `id` của phần nội dung tương ứng.
 
-Các đường dẫn tài nguyên trong HTML là đường dẫn tương đối. Vì vậy, hãy giữ cấu trúc thư mục `assets/css` và `assets/img` khi sao chép hoặc triển khai website.
+## Chạy thử
 
-## Chạy thử trên máy
+### Mở trực tiếp
 
-### Windows
+Mở tệp `index.html` bằng trình duyệt. Cách này không cần cài đặt thêm, phù hợp để xem nhanh giao diện.
 
-Mở PowerShell tại thư mục dự án và chạy một trong các cách sau:
+### Chạy máy chủ HTTP cục bộ
 
-- Nhanh nhất: mở `hieuco696@gmail.com`index.html` bằng trình duyệt.
-- Dùng máy chủ HTTP cục bộ (Python 3):
+Chạy lệnh từ thư mục gốc của dự án, sau đó truy cập <http://localhost:8000>.
+
+#### Windows — PowerShell hoặc Command Prompt
 
 ```powershell
 py -m http.server 8000
 ```
 
-Nếu lệnh `py` không có nhưng đã cài Python, thử:
+Nếu lệnh `py` không có nhưng Python đã được cài đặt:
 
 ```powershell
 python -m http.server 8000
 ```
 
-### macOS
-
-Mở Terminal tại thư mục dự án:
+#### macOS
 
 ```bash
 python3 -m http.server 8000
 ```
 
-### Linux
-
-Mở Terminal tại thư mục dự án:
+#### Linux
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Trên Windows, macOS và Linux, sau khi máy chủ khởi động, mở <http://localhost:8000> trong trình duyệt. Dừng máy chủ bằng `Ctrl+C`.
+Dừng máy chủ bằng `Ctrl+C`. Nếu cổng `8000` đang được sử dụng, thay `8000` trong lệnh bằng một cổng khác và mở đúng cổng đó trên trình duyệt.
 
 ## Chạy bằng Docker
 
-Cần cài và khởi động Docker trước. Các lệnh dưới đây dùng Nginx để phục vụ trực tiếp thư mục dự án, không cần tạo image riêng.
+Các lệnh sau chạy Nginx để phục vụ trực tiếp thư mục dự án ở chế độ chỉ đọc. Mở <http://localhost:8080> sau khi container khởi động; dừng bằng `Ctrl+C`. Tùy chọn `--rm` tự xóa container sau khi dừng.
 
-### Windows (PowerShell)
+### Windows — PowerShell
 
-Chạy tại thư mục dự án:
+Chạy tại thư mục gốc dự án:
 
 ```powershell
 docker run --rm --name cv-portfolio -p 8080:80 --mount "type=bind,source=$($PWD.Path),target=/usr/share/nginx/html,readonly" nginx:alpine
 ```
 
-### Windows (Command Prompt)
+### Windows — Command Prompt
 
-Chạy tại thư mục dự án:
+Chạy tại thư mục gốc dự án:
 
 ```cmd
 docker run --rm --name cv-portfolio -p 8080:80 -v "%cd%:/usr/share/nginx/html:ro" nginx:alpine
 ```
 
-### macOS và Linux
+### macOS
 
-Chạy tại thư mục dự án:
+Chạy từ Terminal tại thư mục gốc dự án:
 
 ```bash
 docker run --rm --name cv-portfolio -p 8080:80 -v "$PWD:/usr/share/nginx/html:ro" nginx:alpine
 ```
 
-Khi container hoạt động, mở <http://localhost:8080>. Dừng container bằng `Ctrl+C`; tùy chọn `--rm` sẽ tự xóa container sau khi dừng.
+### Linux
+
+Chạy từ Terminal tại thư mục gốc dự án:
+
+```bash
+docker run --rm --name cv-portfolio -p 8080:80 -v "$PWD:/usr/share/nginx/html:ro" nginx:alpine
+```
+
+Nếu cổng `8080` đang được sử dụng, đổi phần `8080:80` thành một cổng máy khác, ví dụ `8081:80`, rồi mở <http://localhost:8081>.
 
 ## Kiểm tra nhanh
 
-- Trang mở được và không có lỗi tải ảnh đại diện hoặc stylesheet.
-- Các mục điều hướng cuộn đến đúng phần nội dung.
-- Bố cục hiển thị phù hợp trên màn hình nhỏ và màn hình lớn.
-- Kiểm tra lại email, liên kết hồ sơ và các liên kết dự án sau khi thay nội dung mẫu.
+- Mở trang và xác nhận các phần nội dung xuất hiện.
+- Bấm từng mục trong thanh điều hướng để kiểm tra vị trí đích.
+- Xác nhận ảnh tải được và liên kết gửi email mở ứng dụng email.
+- Kiểm tra giao diện ở cả máy tính và điện thoại. Báo cáo kiểm thử và ảnh chụp hiện tại nằm trong `test_report.md` và `docs/screenshots/`; báo cáo ghi nhận giao diện điện thoại còn nội dung bị cắt ngang.
 
 ## Thông tin liên hệ
 
-Thông tin đang được hiển thị trong trang:
+- **Tên hiển thị:** Đỗ Minh Hiếu.
+- **Email hiển thị trong trang:** [hieuco696@gmail.com](mailto:hieuco696@gmail.com).
+- **Mã nguồn dự án:** [github.com/hoanghieu696/CV](https://github.com/hoanghieu696/CV).
 
-- Tên: Nguyễn Văn An
-- Email mẫu: `hieuco696@gmail.com`
-- GitHub mẫu: `github.com/hoanghieu696`
-- SDT: `0325466955`
-
-Đây là thông tin minh họa trong mã nguồn, không xác nhận là địa chỉ liên hệ thực. Hãy cập nhật thông tin của chủ dự án trong `index.html` trước khi sử dụng hoặc công khai website.
+Trước khi công khai hoặc sử dụng nội dung cho mục đích khác, hãy xác nhận và cập nhật thông tin liên hệ trong `index.html`.
