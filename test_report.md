@@ -1,6 +1,6 @@
 # Báo cáo kiểm thử
 
-- **Dự án:** Portfolio CV - Nguyễn Văn An
+- **Dự án:** Portfolio CV - Đỗ Minh Hiếu
 - **Ngày kiểm thử:** 27/10/2026
 - **Phạm vi:** Website tĩnh trong repository; kiểm tra trực quan bằng Microsoft Edge/Chromium trên Windows và rà soát mã nguồn.
 - **Kết quả tổng quan:** Trang hiển thị đúng trong các kích thước đã kiểm tra. Một số tiêu chí chỉ đạt một phần vì dự án không có bộ kiểm thử tự động, máy chủ ứng dụng hoặc môi trường Docker khả dụng để xác minh triển khai.
