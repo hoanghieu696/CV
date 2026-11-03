@@ -10,7 +10,7 @@
 | Tiêu chí | Đánh giá | Kết quả kiểm tra và minh chứng |
 |---|---|---|
 | **Tính đúng đắn** | Đạt trong phạm vi kiểm tra tĩnh | Tám liên kết điều hướng nội bộ đều trỏ đến ID có trong trang. Cả bốn đường dẫn ảnh trong `index.html` đều tồn tại trong repository. Trang gồm các phần Trang chủ, Giới thiệu, Học vấn, Kỹ năng, Dự án, Thư viện hình ảnh, Mục tiêu và Liên hệ. |
-| **UI/UX** | Đạt một phần | Đã chụp trang ở viewport 1365 × 900 và 390 × 844 CSS px. Giao diện máy tính hiển thị đúng. Ở chiều rộng điện thoại, menu và nội dung tiêu đề/giới thiệu bị cắt ở mép phải, cho thấy có tràn ngang; cần sửa CSS responsive trước khi xem là đạt. Ảnh tương ứng: [máy tính](docs/screenshots/portfolio-desktop.png) và [điện thoại](docs/screenshots/portfolio-mobile.png). |
+| **UI/UX** | Đạt một phần | Ảnh minh chứng mới nhất được chụp ở viewport 1440 × 1000 và 390 × 844 CSS px. Giao diện máy tính hiển thị đúng. Ở chiều rộng điện thoại, menu và nội dung tiêu đề/giới thiệu bị cắt ở mép phải, cho thấy có tràn ngang; cần sửa CSS responsive trước khi xem là đạt. Ảnh tương ứng: [máy tính](docs/screenshots/portfolio-desktop.png) và [điện thoại](docs/screenshots/portfolio-mobile.png). |
 | **Khả năng vận hành - xử lý lỗi** | Đạt một phần | Đây là trang tĩnh, không có backend, biểu mẫu hay xử lý dữ liệu. Các ảnh được tham chiếu đều có trong repository. Chưa kiểm thử máy chủ HTTP, tình huống mất mạng, thiếu tệp sau triển khai hoặc thông báo lỗi cho người dùng. |
 | **Bảo mật** | Đạt trong phạm vi rà soát cơ bản | Mã trang không có biểu mẫu nhập liệu hoặc xử lý dữ liệu người dùng; hiệu ứng JavaScript cập nhật văn bản bằng `textContent`. Không thực hiện kiểm thử xâm nhập, quét lỗ hổng, kiểm tra cấu hình hosting hay đánh giá bảo mật toàn diện. |
 | **Chất lượng mã nguồn** | Đạt một phần | Trang sử dụng các phần tử HTML như `header`, `nav`, `main`, `section`, `footer`; ảnh có văn bản thay thế và CSS hỗ trợ `prefers-reduced-motion`. Tuy nhiên, phần lớn CSS được nhúng trực tiếp trong `index.html`; `assets/css/styles.css` không được trang liên kết sử dụng. Chưa chạy HTML/CSS validator, linter hoặc kiểm thử tự động. |
@@ -18,9 +18,9 @@
 
 ## Minh chứng hình ảnh
 
-Ảnh được chụp mới từ phiên bản `index.html` hiện tại bằng Google Chrome Headless và lưu trong `docs/screenshots/`.
+Ảnh được chụp lại ngày 03/11/2026 từ phiên bản `index.html` hiện tại bằng trình duyệt và lưu trong `docs/screenshots/`.
 
-### Máy tính — viewport 1365 × 900
+### Máy tính — viewport 1440 × 1000
 
 ![Ảnh chụp giao diện portfolio trên máy tính](docs/screenshots/portfolio-desktop.png)
 
