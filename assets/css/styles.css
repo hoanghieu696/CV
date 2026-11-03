@@ -453,3 +453,54 @@ ul {
     scroll-behavior: auto !important;
   }
 }
+
+/* Khu vực liên hệ */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+/* Thiết kế chung */
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 22px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Nút điện thoại */
+.phone-btn {
+    background: linear-gradient(135deg, #00d9ff, #0077ff);
+    box-shadow: 0 0 15px #00d9ff55;
+}
+
+/* Nút GitHub */
+.github-btn {
+    background: linear-gradient(135deg, #8b5cf6, #e040fb);
+    box-shadow: 0 0 15px #a855f755;
+}
+
+/* Hiệu ứng khi rê chuột */
+.contact-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 25px #a855f799;
+}
+/* Hiển thị trên điện thoại */
+@media (max-width: 600px) {
+    .contact-links {
+        flex-direction: column;
+    }
+    .contact-btn {
+        width: 85%;
+    }
+}
