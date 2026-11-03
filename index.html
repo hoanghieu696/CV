@@ -1,1637 +1,1044 @@
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Đỗ Minh Hiếu | Premium Portfolio</title>
-
-<meta name="description"
-content="Portfolio cá nhân Đỗ Minh Hiếu - Sinh viên Công nghệ thông tin Đại học Đại Nam">
-
-<style>
-
-/* ==========================
-   1. CÀI ĐẶT CHUNG
-========================== */
-
-:root {
-    --bg: #070914;
-    --panel: #11182b;
-    --panel2: #151d33;
-    --cyan: #00eaff;
-    --purple: #9562ff;
-    --pink: #ff42b5;
-    --white: #f5f8ff;
-    --muted: #a0adc6;
-    --border: rgba(130, 155, 210, 0.2);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
-
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--white);
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-/* Nền Gaming RGB */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            #8143ff30,
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 85% 70%,
-            #00eaff20,
-            transparent 35%
-        );
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-
-    background-image:
-        linear-gradient(
-            #00eaff08 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            #00eaff08 1px,
-            transparent 1px
-        );
-
-    background-size: 50px 50px;
-    pointer-events: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-button {
-    font-family: inherit;
-}
-
-button:focus-visible,
-a:focus-visible {
-    outline: 2px solid var(--cyan);
-    outline-offset: 4px;
-}
-
-/* ==========================
-   2. THANH MENU
-========================== */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    background: rgba(7, 9, 20, 0.94);
-    backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid var(--border);
-}
-
-nav {
-    max-width: 1200px;
-    margin: auto;
-    padding: 17px 5%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.logo {
-    font-size: 26px;
-    font-weight: 900;
-    color: var(--cyan);
-    letter-spacing: -1px;
-}
-
-.logo span {
-    color: var(--pink);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    align-items: center;
-}
-
-nav ul a {
-    color: #c2cbe0;
-    font-size: 13px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-nav ul a:hover {
-    color: var(--cyan);
-    text-shadow: 0 0 12px var(--cyan);
-}
-
-.menu-toggle {
-    display: none;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    color: white;
-    border-radius: 8px;
-    padding: 7px 13px;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-/* ==========================
-   3. TRANG CHỦ
-========================== */
-
-.hero {
-    max-width: 1200px;
-    min-height: 87vh;
-    margin: auto;
-    padding: 90px 5%;
-
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    align-items: center;
-    gap: 65px;
-}
-
-.eyebrow {
-    color: var(--cyan);
-    letter-spacing: 3px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: clamp(43px, 6vw, 80px);
-    line-height: 1.12;
-    letter-spacing: -2px;
-    margin-bottom: 22px;
-}
-
-.rgb-text {
-    background: linear-gradient(
-        90deg,
-        var(--cyan),
-        var(--purple),
-        var(--pink),
-        var(--cyan)
-    );
-
-    background-size: 300%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-
-    animation: rgbMove 6s linear infinite;
-}
-
-@keyframes rgbMove {
-    to {
-        background-position: 300%;
-    }
-}
-
-.hero p {
-    color: var(--muted);
-    font-size: 17px;
-    margin-bottom: 25px;
-}
-
-.typing {
-    color: var(--cyan) !important;
-    font-weight: bold;
-    min-height: 32px;
-    font-size: 16px !important;
-}
-
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-
-    padding: 13px 25px;
-    border-radius: 11px;
-
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-main {
-    border: none;
-    color: #071019;
-    background: linear-gradient(
-        120deg,
-        var(--cyan),
-        var(--purple)
-    );
-
-    box-shadow: 0 0 24px #00eaff33;
-}
-
-.btn-line {
-    color: var(--cyan);
-    border: 1px solid var(--cyan);
-    background: transparent;
-}
-
-.btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px #9562ff66;
-}
-
-/* ==========================
-   4. KHUNG ẢNH CÁ NHÂN
-========================== */
-
-.profile-box {
-    width: 100%;
-    max-width: 390px;
-    margin: auto;
-    position: relative;
-}
-
-.profile-frame {
-    padding: 4px;
-    border-radius: 25px;
-
-    background: linear-gradient(
-        45deg,
-        var(--cyan),
-        var(--purple),
-        var(--pink),
-        var(--cyan)
-    );
-
-    background-size: 300%;
-
-    animation:
-        rgbMove 6s linear infinite,
-        floatImage 5s ease-in-out infinite;
-
-    box-shadow: 0 0 45px #9562ff44;
-}
-
-.profile-frame img {
-    display: block;
-    width: 100%;
-    height: 440px;
-    object-fit: cover;
-    object-position: center 35%;
-    border-radius: 22px;
-    background: var(--panel);
-}
-
-@keyframes floatImage {
-    50% {
-        transform: translateY(-12px);
-    }
-}
-
-.profile-status {
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-
-    padding: 12px 18px;
-    border-radius: 12px;
-
-    background: #151d33;
-    border: 1px solid #405077;
-
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.status-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin-right: 8px;
-    border-radius: 50%;
-    background: #40ffb3;
-    box-shadow: 0 0 12px #40ffb3;
-}
-
-/* ==========================
-   5. CÁC PHẦN NỘI DUNG
-========================== */
-
-.section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 90px 5%;
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 43px;
-}
-
-.section-number {
-    color: var(--cyan);
-    letter-spacing: 3px;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-.section-title {
-    margin-top: 10px;
-    font-size: clamp(30px, 4vw, 43px);
-    line-height: 1.25;
-}
-
-.section-title span {
-    color: var(--cyan);
-}
-
-.section-description {
-    margin-top: 14px;
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.panel {
-    background: linear-gradient(
-        135deg,
-        #151d33,
-        #0e1425
-    );
-
-    border: 1px solid var(--border);
-    border-radius: 22px;
-
-    padding: 38px;
-    box-shadow: 0 15px 40px #0003;
-}
-
-.panel h3 {
-    margin-bottom: 15px;
-    font-size: 23px;
-}
-
-.panel p {
-    color: var(--muted);
-    margin-bottom: 15px;
-}
-
-.info-grid,
-.skill-grid,
-.project-grid,
-.gallery-grid,
-.goal-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-}
-
-/* ==========================
-   6. THẺ THÔNG TIN
-========================== */
-
-.card {
-    background: linear-gradient(
-        145deg,
-        #151c30,
-        #0f1527
-    );
-
-    padding: 28px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-
-    transition: 0.35s;
-    overflow: hidden;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    border-color: var(--cyan);
-    box-shadow: 0 0 28px #00eaff24;
-}
-
-.card .emoji {
-    font-size: 38px;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    font-size: 20px;
-    color: var(--cyan);
-    margin-bottom: 12px;
-}
-
-.card p {
-    font-size: 14px;
-    color: var(--muted);
-}
-
-/* ==========================
-   7. THANH KỸ NĂNG
-========================== */
-
-.skill-bar {
-    width: 100%;
-    height: 8px;
-    border-radius: 20px;
-
-    background: #29334c;
-    margin-top: 22px;
-    overflow: hidden;
-}
-
-.skill-fill {
-    height: 100%;
-    width: var(--level);
-
-    background: linear-gradient(
-        90deg,
-        var(--cyan),
-        var(--purple)
-    );
-
-    border-radius: 20px;
-}
-
-.skill-percent {
-    color: var(--cyan);
-    font-size: 13px;
-    font-weight: bold;
-    margin-top: 8px;
-    text-align: right;
-}
-
-/* ==========================
-   8. DỰ ÁN
-========================== */
-
-.tag {
-    display: inline-block;
-
-    padding: 5px 12px;
-    margin: 15px 5px 0 0;
-
-    border-radius: 20px;
-    background: #9562ff22;
-    color: #d8c6ff;
-
-    font-size: 12px;
-}
-
-/* ==========================
-   9. THƯ VIỆN ẢNH
-========================== */
-
-.gallery-item {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: 0.35s;
-}
-
-.gallery-item:hover {
-    transform: translateY(-7px);
-    border-color: var(--cyan);
-}
-
-.gallery-item img {
-    display: block;
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    transition: 0.5s;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.06);
-}
-
-.gallery-caption {
-    padding: 15px;
-    color: var(--cyan);
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-/* ==========================
-   10. LIÊN HỆ CHUYÊN NGHIỆP
-========================== */
-
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-
-    padding: 40px;
-    border-radius: 25px;
-
-    background: linear-gradient(
-        135deg,
-        #151d33,
-        #0d1325
-    );
-
-    border: 1px solid var(--border);
-    box-shadow: 0 20px 60px #0005;
-}
-
-.contact-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.contact-left h3 {
-    font-size: clamp(28px, 4vw, 44px);
-    line-height: 1.2;
-    margin: 20px 0;
-}
-
-.contact-left p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 22px;
-}
-
-.contact-email {
-    color: var(--cyan);
-    font-weight: bold;
-    overflow-wrap: anywhere;
-}
-
-.contact-email:hover {
-    text-decoration: underline;
-}
-
-.contact-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 16px;
-}
-
-.contact-tab {
-    padding: 14px 10px;
-    border-radius: 12px;
-
-    border: 1px solid #3d4966;
-    background: #0b1122;
-    color: #c6d1e9;
-
-    font-size: 14px;
-    font-weight: bold;
-
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.contact-tab:hover {
-    border-color: var(--cyan);
-    color: white;
-}
-
-.contact-tab.active {
-    background: linear-gradient(
-        120deg,
-        #00eaff20,
-        #9562ff35
-    );
-
-    color: white;
-    border-color: var(--cyan);
-    box-shadow: 0 0 20px #00eaff18;
-}
-
-.contact-info {
-    padding: 30px 20px;
-    min-height: 255px;
-
-    background: #090e1e;
-    border: 1px solid #354160;
-
-    border-radius: 18px;
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.contact-icon {
-    font-size: 35px;
-    margin-bottom: 10px;
-}
-
-.contact-label {
-    color: var(--muted);
-    font-size: 11px;
-    letter-spacing: 2px;
-    font-weight: bold;
-}
-
-.contact-value {
-    color: var(--cyan);
-    font-size: clamp(19px, 2.5vw, 28px);
-    font-weight: 800;
-    margin: 10px 0;
-    overflow-wrap: anywhere;
-}
-
-.contact-description {
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 20px;
-}
-
-.contact-actions {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.contact-actions .btn {
-    font-size: 12px;
-    padding: 11px 17px;
-}
-
-.copy-message {
-    color: #69ffc1;
-    margin-top: 12px;
-    font-size: 12px;
-    min-height: 18px;
-}
-
-/* ==========================
-   11. FOOTER
-========================== */
-
-footer {
-    padding: 30px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 13px;
-
-    border-top: 1px solid var(--border);
-}
-
-/* ==========================
-   12. HIỆU ỨNG KHI CUỘN
-========================== */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(35px);
-
-    transition:
-        opacity 0.75s ease,
-        transform 0.75s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Thanh tiến độ cuộn */
-
-.progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 0%;
-    height: 3px;
-    z-index: 2000;
-
-    background: linear-gradient(
-        90deg,
-        var(--cyan),
-        var(--purple),
-        var(--pink)
-    );
-
-    box-shadow: 0 0 12px var(--cyan);
-}
-
-/* ==========================
-   13. RESPONSIVE
-========================== */
-
-@media (max-width: 950px) {
-
-    nav ul {
-        gap: 12px;
-    }
-
-    nav ul a {
-        font-size: 11px;
-    }
-
-    .hero {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-    }
-
-    .contact-container {
-        gap: 22px;
-        padding: 28px;
-    }
-}
-
-@media (max-width: 760px) {
-
-    nav {
-        position: relative;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    nav ul {
-        display: none;
-        position: absolute;
-
-        top: 100%;
-        left: 0;
-        right: 0;
-
-        padding: 20px;
-
-        background: #0d1427;
-        border-bottom: 1px solid var(--border);
-
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-    }
-
-    nav ul.open {
-        display: flex;
-    }
-
-    nav ul a {
-        display: block;
-        font-size: 14px;
-        padding: 11px;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-
-        padding: 75px 5%;
-        min-height: auto;
-        gap: 60px;
-    }
-
-    .buttons {
-        justify-content: center;
-    }
-
-    .profile-box {
-        max-width: 340px;
-    }
-
-    .profile-frame img {
-        height: 390px;
-    }
-
-    .section {
-        padding: 65px 5%;
-    }
-
-    .info-grid,
-    .skill-grid,
-    .project-grid,
-    .gallery-grid,
-    .goal-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-left {
-        text-align: center;
-        align-items: center;
-    }
-}
-
-@media (max-width: 550px) {
-
-    .hero h1 {
-        font-size: 42px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .info-grid,
-    .skill-grid,
-    .project-grid,
-    .gallery-grid,
-    .goal-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .panel {
-        padding: 23px;
-    }
-
-    .card {
-        padding: 24px;
-    }
-
-    .contact-container {
-        padding: 19px;
-    }
-
-    .contact-tab {
-        font-size: 12px;
-        padding: 12px 6px;
-    }
-
-    .contact-info {
-        padding: 24px 10px;
-    }
-
-    .contact-value {
-        font-size: 20px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-    }
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    .reveal {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Đỗ Minh Hiếu | Neon Gaming Portfolio</title>
+
+    <style>
+        /* =========================
+           1. CÀI ĐẶT MÀU SẮC
+        ========================= */
+
+        :root {
+            --bg: #060818;
+            --panel: #0a1026;
+            --text: #f5f3ff;
+            --muted: #b6b9d9;
+            --cyan: #00ddff;
+            --purple: #a43dff;
+            --pink: #ff39e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                radial-gradient(
+                    ellipse at 5% 75%,
+                    #3c075a55,
+                    transparent 30%
+                ),
+                radial-gradient(
+                    ellipse at 95% 80%,
+                    #00396a44,
+                    transparent 35%
+                ),
+                var(--bg);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid white;
+            outline-offset: 4px;
+        }
+
+        .wrap {
+            max-width: 1450px;
+            margin: auto;
+            padding-inline: 28px;
+        }
+
+        /* =========================
+           2. MENU ĐIỀU HƯỚNG
+        ========================= */
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: #07071af0;
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid #8d43ff88;
+            box-shadow: 0 2px 18px #983aff77;
+        }
+
+        .nav {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 260px;
+        }
+
+        .brand-icon {
+            font-size: 40px;
+            filter: drop-shadow(0 0 9px #a037ff);
+        }
+
+        .brand strong {
+            display: block;
+            font-size: 21px;
+            letter-spacing: 0.03em;
+            text-shadow: 0 0 12px #b565ff;
+        }
+
+        .brand small {
+            display: block;
+            letter-spacing: 0.38em;
+            color: #c5c9f3;
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .links a {
+            padding: 11px 15px;
+            border-radius: 14px;
+            color: #e5e2ff;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .links a:hover,
+        .links a.active {
+            background: linear-gradient(
+                90deg,
+                #1b30d7,
+                #5908a4
+            );
+            box-shadow: 0 0 17px #7238ff77;
+        }
+
+        .social {
+            display: flex;
+            gap: 9px;
+        }
+
+        .social a {
+            border: 1px solid #564b94;
+            background: #10122d;
+            border-radius: 12px;
+            padding: 8px 11px;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            box-shadow: 0 0 18px #c13dff;
+        }
+
+        .menu {
+            display: none;
+            color: white;
+            background: #141438;
+            border: 1px solid #7e48d7;
+            border-radius: 10px;
+            padding: 8px 12px;
+        }
+
+        /* =========================
+           3. DẢI CHỮ CHẠY NGANG
+        ========================= */
+
+        .ticker-stack {
+            padding-top: 5px;
+        }
+
+        .ticker {
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid var(--cyan);
+            border-bottom: 1px solid var(--pink);
+            box-shadow:
+                0 0 11px #a327ff,
+                inset 0 0 9px #2c0b6d;
+            background: #08081b;
+            margin: 6px 0;
+            height: 42px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker:nth-child(2) {
+            border-color: #9b4cff;
+        }
+
+        .ticker:nth-child(3) {
+            border-color: #02dfff;
+        }
+
+        .track {
+            display: flex;
+            flex-shrink: 0;
+            min-width: max-content;
+            animation: marquee 24s linear infinite;
+        }
+
+        .ticker.reverse .track {
+            animation-direction: reverse;
+            animation-duration: 30s;
+        }
+
+        .ticker:hover .track {
+            animation-play-state: paused;
+        }
+
+        .track span {
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            padding-right: 60px;
+            text-shadow: 0 0 9px currentColor;
+            color: #ff7cf5;
+        }
+
+        .ticker:nth-child(2) span {
+            color: #d7b5ff;
+        }
+
+        .ticker:nth-child(3) span {
+            color: #74ffed;
+        }
+
+        @keyframes marquee {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* =========================
+           4. TRANG CHỦ GAMING
+        ========================= */
+
+        .hero {
+            position: relative;
+            min-height: 382px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 1px solid #4a2b86;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #06091d 0%,
+                    #080920 34%,
+                    #09081c33 73%
+                ),
+                url("assets/img/hinh-nen-may-tinh-4k-game-lien-minh.jpg")
+                right center / auto 100% no-repeat;
+        }
+
+        .hero::before {
+            content: ""
+            position: absolute;
+            inset: 0;
+
+            background: linear-gradient(
+                90deg,
+                #08091e 0%,
+                #08091eeb 32%,
+                #08091e00 64%
+            );
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding-block: 38px;
+            max-width: 650px;
+        }
+
+        .hello {
+            display: inline-block;
+            border: 1px solid #00cfff;
+            border-radius: 25px;
+            background: #07224c;
+            padding: 6px 15px;
+            box-shadow: 0 0 12px #00cfff66;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 4.7vw, 66px);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin: 18px 0 7px;
+            color: #f9f7ff;
+
+            text-shadow:
+                -3px 2px 0 #167fff,
+                0 0 18px #6b51ff,
+                3px 0 12px #ff25e8;
+        }
+
+        .cursor {
+            color: #f74aff;
+            animation: blink 1s steps(1) infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero h2 {
+            color: #c5a9ff;
+            margin: 0 0 14px;
+            font-size: 23px;
+        }
+
+        .hero p {
+            max-width: 470px;
+            line-height: 1.6;
+            color: #f1eaff;
+        }
+
+        .actions {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            border-radius: 11px;
+            padding: 12px 25px;
+            font-weight: 700;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            border: 1px solid #8e5aff;
+            box-shadow: 0 0 15px #842aff77;
+
+            background: linear-gradient(
+                100deg,
+                #8618d9,
+                #332b8b
+            );
+
+            transition: 0.3s;
+        }
+
+        .btn.secondary {
+            background: #080b27bb;
+            border-color: #03d8ff;
+            box-shadow: 0 0 12px #00eaff88;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.18);
+        }
+
+        .hero-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .hero-social a {
+            border: 1px solid #5d5c9b;
+            background: #111631b8;
+            border-radius: 10px;
+            padding: 7px 12px;
+        }
+
+        /* =========================
+           5. BỐN THẺ TÍNH NĂNG
+        ========================= */
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 20px;
+            padding-block: 15px 22px;
+        }
+
+        .feature {
+            border: 1px solid #7565d9;
+            border-radius: 14px;
+            padding: 15px 18px;
+
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            background: linear-gradient(
+                115deg,
+                #0b1535,
+                #110e29
+            );
+
+            box-shadow:
+                inset 0 0 12px #242c7b77,
+                0 0 8px #5639c066;
+
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 18px #a43dff66;
+        }
+
+        .feature:nth-child(1) {
+            border-color: #00dfff;
+        }
+
+        .feature:nth-child(2),
+        .feature:nth-child(4) {
+            border-color: #c447ff;
+        }
+
+        .feature .symbol {
+            font-size: 35px;
+            filter: drop-shadow(
+                0 0 8px #00cfff
+            );
+        }
+
+        .feature strong {
+            font-size: 15px;
+        }
+
+        .feature p {
+            font-size: 12px;
+            color: #c6c5de;
+            margin: 3px 0 0;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           6. BA BẢNG NỘI DUNG
+        ========================= */
+
+        .panels {
+            display: grid;
+            grid-template-columns:
+                1.05fr 1fr 1.05fr;
+
+            gap: 20px;
+            padding-bottom: 28px;
+        }
+
+        .panel {
+            min-width: 0;
+            border: 1px solid #357bff;
+            border-radius: 15px;
+
+            background: linear-gradient(
+                145deg,
+                #0a0c22,
+                #090e23
+            );
+
+            padding: 20px 21px;
+            box-shadow: 0 0 16px #1623a566;
+        }
+
+        .panel:nth-child(1) {
+            border-color: #b447ff;
+        }
+
+        .panel:nth-child(3) {
+            border-color: #338bff;
+        }
+
+        .panel h3 {
+            margin: 0 0 21px;
+            font-size: 22px;
+        }
+
+        .panel h3 .emoji {
+            color: #0ce4ff;
+            text-shadow: 0 0 9px #00dfff;
+            margin-right: 8px;
+        }
+
+        /* =========================
+           7. GIỚI THIỆU
+        ========================= */
+
+        .bio {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .bio img {
+            width: 36%;
+            height: 157px;
+            object-fit: cover;
+            border-radius: 11px;
+
+            border: 1px solid #b544ff;
+            box-shadow: 0 0 12px #a83dff;
+        }
+
+        .bio dl {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 7px 12px;
+
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .bio dt {
+            color: #b8c5f4;
+        }
+
+        .bio dd {
+            margin: 0;
+        }
+
+        /* =========================
+           8. KỸ NĂNG
+        ========================= */
+
+        .skill {
+            display: grid;
+            grid-template-columns:
+                100px 1fr 38px;
+
+            gap: 10px;
+            align-items: center;
+            margin: 13px 0;
+            font-size: 13px;
+        }
+
+        .skill label {
+            font-weight: 700;
+        }
+
+        .bar {
+            height: 13px;
+            border-radius: 20px;
+            background: #1b254a;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+            border-radius: 20px;
+
+            background: linear-gradient(
+                90deg,
+                #a400ff,
+                #08d8f7
+            );
+
+            box-shadow: 0 0 10px #a32bff;
+        }
+
+        /* =========================
+           9. DỰ ÁN
+        ========================= */
+
+        .project {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+
+            border-top: 1px solid #37305c;
+            padding-top: 13px;
+        }
+
+        .project img {
+            width: 37%;
+            height: 116px;
+            object-fit: cover;
+
+            border: 1px solid #a548ff;
+            border-radius: 10px;
+        }
+
+        .project strong {
+            font-size: 14px;
+        }
+
+        .project p {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #c9c7e4;
+        }
+
+        .tag {
+            font-size: 10px;
+            display: inline-block;
+            border-radius: 14px;
+
+            border: 1px solid #ca4489;
+            color: #ffc2e1;
+
+            padding: 2px 7px;
+            margin: 2px;
+        }
+
+        .tag:nth-child(2) {
+            border-color: #19b4ff;
+            color: #9fe6ff;
+        }
+
+        .tag:nth-child(3) {
+            border-color: #d5b20b;
+            color: #ffe85a;
+        }
+
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+            color: #b1a0ff;
+            letter-spacing: 10px;
+        }
+
+        /* =========================
+           10. HỌC VẤN VÀ MỤC TIÊU
+        ========================= */
+
+        .extra {
+            padding: 25px 0 70px;
+        }
+
+        .section-title {
+            font-size: 29px;
+            margin: 20px 0;
+        }
+
+        .extra-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .extra-card {
+            padding: 22px;
+            border-radius: 15px;
+
+            border: 1px solid #5a4ca2;
+            background: #0b1028;
+            line-height: 1.65;
+
+            transition: 0.3s;
+        }
+
+        .extra-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyan);
+        }
+
+        .extra-card p {
+            color: #c7c7df;
+        }
+
+        /* =========================
+           11. LIÊN HỆ
+        ========================= */
+
+        .contact {
+            border: 1px solid #02dfff;
+            border-radius: 15px;
+            padding: 25px;
+            background: #09152c;
+
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact a {
+            color: #76e8ff;
+        }
+
+        .contact button {
+            background: #381b78;
+            color: white;
+            border: 1px solid #ab62ff;
+            border-radius: 10px;
+            padding: 10px 15px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #9da6ca;
+            border-top: 1px solid #403b83;
+            padding: 24px;
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            z-index: 100;
+
+            background: #122c3b;
+            border: 1px solid #00eaff;
+            color: white;
+
+            padding: 12px 18px;
+            border-radius: 12px;
+
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        #toast.show {
+            opacity: 1;
+        }
+
+        /* =========================
+           12. RESPONSIVE TABLET
+        ========================= */
+
+        @media (max-width: 1120px) {
+
+            .links a {
+                padding: 10px 7px;
+                font-size: 13px;
+            }
+
+            .brand {
+                min-width: auto;
+            }
+
+            .social {
+                display: none;
+            }
+
+            .feature-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .panels {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .panels .panel:last-child {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* =========================
+           13. RESPONSIVE ĐIỆN THOẠI
+        ========================= */
+
+        @media (max-width: 740px) {
+
+            .wrap {
+                padding-inline: 17px;
+            }
+
+            .nav {
+                min-height: 68px;
+            }
+
+            .brand strong {
+                font-size: 17px;
+            }
+
+            .brand-icon {
+                font-size: 31px;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .links {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+
+                flex-direction: column;
+                align-items: stretch;
+                background: #0b0a27;
+
+                padding: 15px;
+                border-bottom: 1px solid #9e47ff;
+            }
+
+            .links.open {
+                display: flex;
+            }
+
+            .links a {
+                padding: 12px;
+            }
+
+            .ticker {
+                height: 35px;
+            }
+
+            .track span {
+                font-size: 13px;
+            }
+
+            .hero {
+                min-height: 510px;
+                align-items: flex-end;
+                background-position: 60% top;
+                background-size: auto 72%;
+            }
+
+            .hero::before {
+                background: linear-gradient(
+                    0deg,
+                    #08091e 0%,
+                    #08091ef0 39%,
+                    #08091e22 90%
+                );
+            }
+
+            .hero-content {
+                padding-top: 205px;
+                padding-bottom: 25px;
+            }
+
+            .hero h2 {
+                font-size: 18px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .feature-grid,
+            .panels,
+            .extra-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .panels .panel:last-child {
+                grid-column: auto;
+            }
+
+            .bio img {
+                height: 140px;
+            }
+
+            .contact {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        /* TÔN TRỌNG CÀI ĐẶT GIẢM CHUYỂN ĐỘNG */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-<!-- THANH TIẾN ĐỘ CUỘN -->
-<div class="progress-bar" id="progressBar"></div>
+    <!-- ======================
+         MENU WEBSITE
+    ====================== -->
 
-<!-- ======================
-     MENU
-====================== -->
+    <header class="header">
 
-<header>
-    <nav>
+        <nav class="nav wrap">
 
-        <a href="#home" class="logo">
-            HIEU<span>.36</span>
-        </a>
+            <a class="brand" href="#home">
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Mở menu"
-            aria-expanded="false">
-            ☰
-        </button>
+                <span class="brand-icon">🎮</span>
 
-        <ul id="navMenu">
-            <li><a href="#home">Trang chủ</a></li>
-            <li><a href="#about">Giới thiệu</a></li>
-            <li><a href="#education">Học vấn</a></li>
-            <li><a href="#skills">Kỹ năng</a></li>
-            <li><a href="#projects">Dự án</a></li>
-            <li><a href="#gallery">Ảnh</a></li>
-            <li><a href="#goals">Mục tiêu</a></li>
-            <li><a href="#contact">Liên hệ</a></li>
-        </ul>
-
-    </nav>
-</header>
-
-<main>
-
-<!-- ======================
-     TRANG CHỦ
-====================== -->
-
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <div class="eyebrow">
-            WELCOME TO MY DIGITAL WORLD
-        </div>
-
-        <h1>
-            XIN CHÀO<br>
-            TÔI LÀ<br>
-            <span class="rgb-text">
-                ĐỖ MINH HIẾU
-            </span>
-        </h1>
-
-        <p class="typing" id="typing"></p>
-
-        <p>
-            Sinh viên Công nghệ thông tin<br>
-            Trường Đại học Đại Nam<br>
-            Đam mê lập trình và thiết kế đồ họa.
-        </p>
-
-        <div class="buttons">
-
-            <a href="#projects" class="btn btn-main">
-                🚀 Xem dự án
-            </a>
-
-            <a href="#contact" class="btn btn-line">
-                ✉ Liên hệ
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="profile-box">
-
-        <div class="profile-frame">
-
-            <img
-                src="assets/img/1792957209136_855100818377735852_4820312189864021908_4d5bf9b0778a6c3aacbe02ae985c5943.jpg"
-                alt="Ảnh cá nhân Đỗ Minh Hiếu">
-
-        </div>
-
-        <div class="profile-status">
-            <span class="status-dot"></span>
-            IT STUDENT · FRONTEND EXPLORER
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ======================
-     GIỚI THIỆU
-====================== -->
-
-<section class="section reveal" id="about">
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            01 / VỀ TÔI
-        </div>
-
-        <h2 class="section-title">
-            GIỚI THIỆU
-            <span>BẢN THÂN</span>
-        </h2>
-
-    </div>
-
-    <div class="panel">
-
-        <h3>👋 Xin chào, tôi là Minh Hiếu!</h3>
-
-        <p>
-            Tôi hiện là sinh viên năm nhất ngành
-            Công nghệ thông tin tại Trường Đại học
-            Đại Nam.
-        </p>
-
-        <p>
-            Tôi yêu thích máy tính, lập trình web
-            và khám phá những công nghệ mới.
-            Hiện tại, tôi đang tìm hiểu HTML,
-            CSS và JavaScript để xây dựng những
-            website có giao diện đẹp và dễ sử dụng.
-        </p>
-
-        <p>
-            Mục tiêu của tôi là rèn luyện tư duy
-            logic, khả năng giải quyết vấn đề,
-            nâng cao kỹ năng lập trình và từng bước
-            trở thành một lập trình viên chuyên nghiệp.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- ======================
-     HỌC VẤN
-====================== -->
-
-<section class="section reveal" id="education">
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            02 / HỌC VẤN
-        </div>
-
-        <h2 class="section-title">
-            THÔNG TIN <span>HỌC VẤN</span>
-        </h2>
-
-    </div>
-
-    <div class="info-grid">
-
-        <div class="card">
-
-            <div class="emoji">🎓</div>
-
-            <h3>Trường đại học</h3>
-
-            <p>Trường Đại học Đại Nam</p>
-
-        </div>
-
-        <div class="card">
-
-            <div class="emoji">💻</div>
-
-            <h3>Chuyên ngành</h3>
-
-            <p>Công nghệ thông tin</p>
-
-        </div>
-
-        <div class="card">
-
-            <div class="emoji">📚</div>
-
-            <h3>Lớp học</h3>
-
-            <p>CNTT 20-01</p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ======================
-     KỸ NĂNG
-====================== -->
-
-<section class="section reveal" id="skills">
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            03 / NĂNG LỰC
-        </div>
-
-        <h2 class="section-title">
-            KỸ NĂNG <span>LẬP TRÌNH</span>
-        </h2>
-
-        <p class="section-description">
-            Các mức độ dưới đây là ví dụ minh họa,
-            có thể điều chỉnh theo năng lực thực tế.
-        </p>
-
-    </div>
-
-    <div class="skill-grid">
-
-        <!-- HTML -->
-
-        <div class="card">
-
-            <div class="emoji">🌐</div>
-
-            <h3>HTML5</h3>
-
-            <p>Xây dựng cấu trúc website.</p>
-
-            <div class="skill-bar">
-                <div class="skill-fill"
-                     style="--level:75%">
-                </div>
-            </div>
-
-            <div class="skill-percent">75%</div>
-
-        </div>
-
-        <!-- CSS -->
-
-        <div class="card">
-
-            <div class="emoji">🎨</div>
-
-            <h3>CSS3</h3>
-
-            <p>Thiết kế giao diện và hiệu ứng.</p>
-
-            <div class="skill-bar">
-                <div class="skill-fill"
-                     style="--level:65%">
-                </div>
-            </div>
-
-            <div class="skill-percent">65%</div>
-
-        </div>
-
-        <!-- JAVASCRIPT -->
-
-        <div class="card">
-
-            <div class="emoji">⚡</div>
-
-            <h3>JavaScript</h3>
-
-            <p>Tạo tương tác trên website.</p>
-
-            <div class="skill-bar">
-                <div class="skill-fill"
-                     style="--level:45%">
-                </div>
-            </div>
-
-            <div class="skill-percent">45%</div>
-
-        </div>
-
-        <!-- GITHUB -->
-
-        <div class="card">
-
-            <div class="emoji">🔧</div>
-
-            <h3>Git & GitHub</h3>
-
-            <p>Quản lý và lưu trữ mã nguồn.</p>
-
-            <div class="skill-bar">
-                <div class="skill-fill"
-                     style="--level:40%">
-                </div>
-            </div>
-
-            <div class="skill-percent">40%</div>
-
-        </div>
-
-        <!-- VS CODE -->
-
-        <div class="card">
-
-            <div class="emoji">🖥️</div>
-
-            <h3>Visual Studio Code</h3>
-
-            <p>Viết, chỉnh sửa và chạy code.</p>
-
-            <div class="skill-bar">
-                <div class="skill-fill"
-                     style="--level:70%">
-                </div>
-            </div>
-
-            <div class="skill-percent">70%</div>
-
-        </div>
-
-        <!-- RESPONSIVE -->
-
-        <div class="card">
-
-            <div class="emoji">📱</div>
-
-            <h3>Responsive Design</h3>
-
-            <p>
-                Thiết kế website phù hợp
-                nhiều kích thước màn hình.
-            </p>
-
-            <div class="skill-bar">
-                <div class="skill-fill"
-                     style="--level:55%">
-                </div>
-            </div>
-
-            <div class="skill-percent">55%</div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ======================
-     DỰ ÁN
-====================== -->
-
-<section class="section reveal" id="projects">
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            04 / THỰC HÀNH
-        </div>
-
-        <h2 class="section-title">
-            DỰ ÁN <span>CÁ NHÂN</span>
-        </h2>
-
-    </div>
-
-    <div class="project-grid">
-
-        <article class="card">
-
-            <div class="emoji">🎮</div>
-
-            <h3>Gaming Portfolio</h3>
-
-            <p>
-                Website cá nhân có giao diện Gaming RGB,
-                hiệu ứng chuyển động và thiết kế
-                responsive.
-            </p>
-
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-
-        </article>
-
-        <article class="card">
-
-            <div class="emoji">📝</div>
-
-            <h3>Todo List</h3>
-
-            <p>
-                Ý tưởng ứng dụng quản lý công việc,
-                cho phép thêm, xóa và đánh dấu
-                công việc hoàn thành.
-            </p>
-
-            <span class="tag">Dự kiến</span>
-            <span class="tag">JavaScript</span>
-
-        </article>
-
-        <article class="card">
-
-            <div class="emoji">📊</div>
-
-            <h3>Dashboard</h3>
-
-            <p>
-                Ý tưởng xây dựng bảng điều khiển,
-                trình bày dữ liệu và biểu đồ
-                bằng giao diện hiện đại.
-            </p>
-
-            <span class="tag">Dự kiến</span>
-            <span class="tag">CSS Grid</span>
-
-        </article>
-
-    </div>
-
-</section>
-
-<!-- ======================
-     THƯ VIỆN ẢNH
-====================== -->
-
-<section class="section reveal" id="gallery">
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            05 / KHOẢNH KHẮC
-        </div>
-
-        <h2 class="section-title">
-            THƯ VIỆN <span>HÌNH ẢNH</span>
-        </h2>
-
-    </div>
-
-    <div class="gallery-grid">
-
-        <div class="gallery-item">
-
-            <img
-                src="assets/img/1793017724325_855100818377735852_4820312189864021908_c1c253bc86e4702eb01fc53d803b837d.jpg"
-                alt="Ảnh cá nhân">
-
-            <div class="gallery-caption">
-                Ảnh cá nhân
-            </div>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="assets/img/OIP (6).webp"
-                alt="Góc lập trình">
-
-            <div class="gallery-caption">
-                Góc lập trình
-            </div>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="assets/img/OIP (7).webp"
-                alt="Gaming Technology">
-
-            <div class="gallery-caption">
-                Gaming & Technology
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ======================
-     MỤC TIÊU
-====================== -->
-
-<section class="section reveal" id="goals">
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            06 / ĐỊNH HƯỚNG
-        </div>
-
-        <h2 class="section-title">
-            MỤC TIÊU <span>TƯƠNG LAI</span>
-        </h2>
-
-    </div>
-
-    <div class="goal-grid">
-
-        <div class="card">
-
-            <div class="emoji">🎯</div>
-
-            <h3>Mục tiêu ngắn hạn</h3>
-
-            <p>
-                Nắm vững kiến thức cơ bản về
-                HTML, CSS và JavaScript.
-                Hoàn thành các dự án lập trình nhỏ.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <div class="emoji">🚀</div>
-
-            <h3>Mục tiêu trung hạn</h3>
-
-            <p>
-                Tìm hiểu React, GitHub,
-                nâng cao kỹ năng làm việc nhóm
-                và xây dựng Portfolio cá nhân.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <div class="emoji">🏆</div>
-
-            <h3>Mục tiêu dài hạn</h3>
-
-            <p>
-                Trở thành lập trình viên có
-                chuyên môn tốt, tham gia
-                các dự án công nghệ thực tế.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ======================
-     LIÊN HỆ
-====================== -->
-
-<section class="section reveal" id="contact">
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            07 / KẾT NỐI
-        </div>
-
-        <h2 class="section-title">
-            KẾT NỐI <span>VỚI TÔI</span>
-        </h2>
-
-        <p class="section-description">
-            Cùng học hỏi, chia sẻ kiến thức
-            và khám phá thế giới công nghệ.
-        </p>
-
-    </div>
-
-    <div class="contact-container">
-
-        <!-- BÊN TRÁI -->
-
-        <div class="contact-left">
-
-            <p>
-                <span class="status-dot"></span>
-                SẴN SÀNG KẾT NỐI
-            </p>
-
-            <h3>
-                LET'S BUILD<br>
-                <span class="rgb-text">
-                    SOMETHING GREAT.
+                <span>
+                    <strong>ĐỖ MINH HIẾU</strong>
+                    <small>PORTFOLIO</small>
                 </span>
-            </h3>
-
-            <p>
-                Tôi luôn sẵn sàng kết nối,
-                trao đổi và chia sẻ kiến thức
-                về lập trình và công nghệ.
-            </p>
-
-            <a
-                href="mailto:hieuco696@gmail.com"
-                class="contact-email">
-
-                ✉ hieuco696@gmail.com
 
             </a>
 
-        </div>
+            <button
+                class="menu"
+                id="menu"
+                aria-label="Mở menu"
+                aria-expanded="false">
+                ☰
+            </button>
 
-        <!-- BÊN PHẢI -->
+            <div class="links" id="links">
 
-        <div class="contact-right">
+                <a class="active" href="#home">
+                    ⌂ Trang chủ
+                </a>
 
-            <div class="contact-buttons">
+                <a href="#about">
+                    ♟ Giới thiệu
+                </a>
 
-                <button
-                    type="button"
-                    class="contact-tab active"
-                    id="phoneButton"
-                    onclick="showContact('phone')"
-                    aria-pressed="true">
+                <a href="#skills">
+                    ⚙ Kỹ năng
+                </a>
 
-                    📞 Số điện thoại
+                <a href="#projects">
+                    ▣ Dự án
+                </a>
 
-                </button>
+                <a href="#education">
+                    🎓 Học vấn
+                </a>
 
-                <button
-                    type="button"
-                    class="contact-tab"
-                    id="githubButton"
-                    onclick="showContact('github')"
-                    aria-pressed="false">
-
-                    💻 GitHub
-
-                </button>
+                <a href="#contact">
+                    ♧ Liên hệ
+                </a>
 
             </div>
 
-            <!-- HIỂN THỊ THÔNG TIN -->
+            <div class="social">
 
-            <div class="contact-info">
+                <a
+                    href="https://github.com/hoanghieu696"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub">
+                    ◉
+                </a>
 
-                <div
-                    class="contact-icon"
-                    id="contactIcon">
-                    📞
-                </div>
+                <a
+                    href="mailto:hieuco696@gmail.com"
+                    aria-label="Email">
+                    ✉
+                </a>
 
-                <div
-                    class="contact-label"
-                    id="contactLabel">
-                    SỐ ĐIỆN THOẠI
-                </div>
+                <a
+                    href="tel:0325466955"
+                    aria-label="Điện thoại">
+                    ☎
+                </a>
 
-                <div
-                    class="contact-value"
-                    id="contactValue">
-                    0325 466 955
-                </div>
+            </div>
 
-                <div
-                    class="contact-description"
-                    id="contactDescription">
+        </nav>
 
-                    Liên hệ trực tiếp qua số điện thoại.
+    </header>
 
-                </div>
+    <!-- ======================
+         DẢI CHẠY NGANG SỐ 1
+    ====================== -->
 
-                <div class="contact-actions">
+    <div
+        class="ticker-stack"
+        aria-label="Các dải chữ công nghệ chuyển động">
 
-                    <button
-                        type="button"
-                        class="btn btn-line"
-                        onclick="copyContact()">
+        <div class="ticker">
 
-                        📋 Sao chép
+            <div class="track">
 
-                    </button>
+                <span>
+                    🎮 ĐỖ MINH HIẾU ✦ SINH VIÊN CNTT
+                    ✦ PORTFOLIO ✦ GAMING
+                    ✦ DEVELOPMENT ✦
+                </span>
 
-                    <a
-                        id="contactLink"
-                        href="tel:0325466955"
-                        class="btn btn-main">
+                <span>
+                    🎮 ĐỖ MINH HIẾU ✦ SINH VIÊN CNTT
+                    ✦ PORTFOLIO ✦ GAMING
+                    ✦ DEVELOPMENT ✦
+                </span>
 
-                        📞 Gọi ngay
+            </div>
 
-                    </a>
+        </div>
 
-                </div>
+        <!-- DẢI CHẠY NGANG SỐ 2 -->
 
-                <div
-                    class="copy-message"
-                    id="copyMessage"
-                    role="status">
-                </div>
+        <div class="ticker reverse">
+
+            <div class="track">
+
+                <span>
+                    〈/〉 HTML5 ✦ CSS3 ✦ JAVASCRIPT
+                    ✦ GITHUB ✦ UI/UX
+                    ✦ RESPONSIVE ✦
+                </span>
+
+                <span>
+                    〈/〉 HTML5 ✦ CSS3 ✦ JAVASCRIPT
+                    ✦ GITHUB ✦ UI/UX
+                    ✦ RESPONSIVE ✦
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- DẢI CHẠY NGANG SỐ 3 -->
+
+        <div class="ticker">
+
+            <div class="track">
+
+                <span>
+                    💡 LEARN ✦ CREATE ✦ BUILD
+                    ✦ INNOVATE ✦ Công nghệ
+                    – Lập trình – Sáng tạo
+                    – Không ngừng học hỏi 🚀 ✦
+                </span>
+
+                <span>
+                    💡 LEARN ✦ CREATE ✦ BUILD
+                    ✦ INNOVATE ✦ Công nghệ
+                    – Lập trình – Sáng tạo
+                    – Không ngừng học hỏi 🚀 ✦
+                </span>
 
             </div>
 
@@ -1639,409 +1046,542 @@ footer {
 
     </div>
 
-</section>
+    <main>
 
-</main>
+        <!-- ======================
+             TRANG CHỦ
+        ====================== -->
 
-<!-- ======================
-     FOOTER
-====================== -->
+        <section class="hero" id="home">
 
-<footer>
+            <div class="wrap" style="width:100%">
 
-    © 2026 Đỗ Minh Hiếu |
-    Premium Gaming RGB Portfolio
+                <div class="hero-content">
 
-</footer>
+                    <span class="hello">
+                        👋 Xin chào, tôi là
+                    </span>
 
-<!-- ======================
-     JAVASCRIPT
-====================== -->
+                    <h1>
+                        ĐỖ MINH HIẾU
+                        <span class="cursor">|</span>
+                    </h1>
 
-<script>
+                    <h2>
+                        Sinh viên Công nghệ thông tin
+                    </h2>
 
-/* ==========================
-   1. HIỆU ỨNG GÕ CHỮ
-========================== */
+                    <p>
+                        Đam mê lập trình, thiết kế
+                        giao diện web và xây dựng
+                        các sản phẩm công nghệ sáng tạo.
+                    </p>
 
-const typingWords = [
-    "Frontend Developer",
-    "IT Student",
-    "Web Design Enthusiast",
-    "Future Software Developer"
-];
+                    <div class="actions">
 
-const typingElement =
-    document.getElementById("typing");
+                        <a
+                            class="btn"
+                            href="https://github.com/hoanghieu696"
+                            target="_blank"
+                            rel="noopener noreferrer">
 
-const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-).matches;
+                            ◉ GitHub của tôi
 
-let wordIndex = 0;
-let characterIndex = 0;
-let isDeleting = false;
+                        </a>
 
-function typingEffect() {
+                        <a
+                            class="btn secondary"
+                            href="tel:0325466955">
 
-    const currentWord = typingWords[wordIndex];
+                            ☎ 0325 466 955
 
-    if (isDeleting) {
-        characterIndex--;
-    } else {
-        characterIndex++;
-    }
+                        </a>
 
-    typingElement.textContent =
-        currentWord.substring(0, characterIndex) + "|";
+                    </div>
 
-    let speed = isDeleting ? 55 : 100;
+                    <div class="hero-social">
 
-    if (
-        !isDeleting &&
-        characterIndex === currentWord.length
-    ) {
+                        <a
+                            href="https://github.com/hoanghieu696"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub">
+                            ◉
+                        </a>
 
-        isDeleting = true;
-        speed = 1500;
+                        <a
+                            href="mailto:hieuco696@gmail.com"
+                            aria-label="Email">
+                            ✉
+                        </a>
 
-    } else if (
-        isDeleting &&
-        characterIndex === 0
-    ) {
+                        <a
+                            href="#contact"
+                            aria-label="Liên hệ">
+                            ♧
+                        </a>
 
-        isDeleting = false;
+                    </div>
 
-        wordIndex =
-            (wordIndex + 1) % typingWords.length;
+                </div>
 
-        speed = 400;
-    }
+            </div>
 
-    setTimeout(typingEffect, speed);
-}
+        </section>
 
-if (reduceMotion) {
-    typingElement.textContent = typingWords[0];
-} else {
-    typingEffect();
-}
+        <!-- ======================
+             BỐN THẺ THÔNG TIN
+        ====================== -->
 
-/* ==========================
-   2. HIỆU ỨNG CUỘN TRANG
-========================== */
+        <section
+            class="feature-grid wrap"
+            aria-label="Sở thích và thế mạnh">
 
-const revealElements =
-    document.querySelectorAll(".reveal");
+            <div class="feature">
 
-if (
-    "IntersectionObserver" in window &&
-    !reduceMotion
-) {
+                <span class="symbol">〈/〉</span>
 
-    const revealObserver =
-        new IntersectionObserver((entries) => {
+                <div>
+                    <strong>Lập trình Web</strong>
 
-            entries.forEach((entry) => {
+                    <p>
+                        Xây dựng giao diện hiện đại,
+                        chuẩn responsive.
+                    </p>
+                </div>
 
-                if (entry.isIntersecting) {
+            </div>
 
-                    entry.target.classList.add("show");
+            <div class="feature">
 
-                    revealObserver.unobserve(
-                        entry.target
-                    );
-                }
+                <span class="symbol">🎨</span>
+
+                <div>
+                    <strong>Thiết kế UI/UX</strong>
+
+                    <p>
+                        Giao diện đẹp, dễ dùng,
+                        trải nghiệm tốt.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="feature">
+
+                <span class="symbol">🎮</span>
+
+                <div>
+                    <strong>Đam mê Công nghệ</strong>
+
+                    <p>
+                        Luôn học hỏi, khám phá
+                        công nghệ mới.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="feature">
+
+                <span class="symbol">🚀</span>
+
+                <div>
+                    <strong>Phát triển Bản thân</strong>
+
+                    <p>
+                        Rèn luyện kỹ năng và
+                        không ngừng tiến bộ.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================
+             BA BẢNG NỘI DUNG
+        ====================== -->
+
+        <section class="panels wrap">
+
+            <!-- GIỚI THIỆU -->
+
+            <article class="panel" id="about">
+
+                <h3>
+                    <span class="emoji">♙</span>
+                    Giới thiệu
+                </h3>
+
+                <div class="bio">
+
+                    <img
+                        src="assets/img/1792957209136_855100818377735852_4820312189864021908_4d5bf9b0778a6c3aacbe02ae985c5943.jpg"
+                        alt="Hình minh họa phong cách gaming">
+
+                    <dl>
+
+                        <dt>Họ và tên:</dt>
+                        <dd>Đỗ Minh Hiếu</dd>
+
+                        <dt>Trường:</dt>
+                        <dd>Đại học Đại Nam</dd>
+
+                        <dt>Ngành:</dt>
+                        <dd>Công nghệ thông tin</dd>
+
+                        <dt>Lớp:</dt>
+                        <dd>CNTT 20-01</dd>
+
+                        <dt>Sở thích:</dt>
+                        <dd>
+                            Lập trình, Gaming,
+                            Công nghệ
+                        </dd>
+
+                    </dl>
+
+                </div>
+
+            </article>
+
+            <!-- KỸ NĂNG -->
+
+            <article class="panel" id="skills">
+
+                <h3>
+                    <span class="emoji">♜</span>
+                    Kỹ năng
+                </h3>
+
+                <p
+                    style="color:#a9aed1;font-size:12px">
+                    Thanh tiến độ minh họa,
+                    có thể chỉnh theo năng lực thực tế.
+                </p>
+
+                <!-- HTML -->
+
+                <div class="skill">
+
+                    <label>HTML5</label>
+
+                    <div class="bar">
+                        <div
+                            class="fill"
+                            style="width:75%">
+                        </div>
+                    </div>
+
+                    <span>75%</span>
+
+                </div>
+
+                <!-- CSS -->
+
+                <div class="skill">
+
+                    <label>CSS3</label>
+
+                    <div class="bar">
+                        <div
+                            class="fill"
+                            style="width:65%">
+                        </div>
+                    </div>
+
+                    <span>65%</span>
+
+                </div>
+
+                <!-- JAVASCRIPT -->
+
+                <div class="skill">
+
+                    <label>JavaScript</label>
+
+                    <div class="bar">
+                        <div
+                            class="fill"
+                            style="width:45%">
+                        </div>
+                    </div>
+
+                    <span>45%</span>
+
+                </div>
+
+                <!-- GITHUB -->
+
+                <div class="skill">
+
+                    <label>Git & GitHub</label>
+
+                    <div class="bar">
+                        <div
+                            class="fill"
+                            style="width:40%">
+                        </div>
+                    </div>
+
+                    <span>40%</span>
+
+                </div>
+
+            </article>
+
+            <!-- DỰ ÁN -->
+
+            <article class="panel" id="projects">
+
+                <h3>
+                    <span class="emoji">▱</span>
+                    Dự án tiêu biểu
+                </h3>
+
+                <div class="project">
+
+                    <img
+                        src="assets/img/OIP (6).webp"
+                        alt="Hình minh họa website Portfolio neon">
+
+                    <div>
+
+                        <strong>
+                            Portfolio Cá nhân
+                        </strong>
+
+                        <p>
+                            Website giới thiệu bản thân
+                            với hiệu ứng RGB, responsive.
+                        </p>
+
+                        <span class="tag">HTML</span>
+
+                        <span class="tag">CSS</span>
+
+                        <span class="tag">JavaScript</span>
+
+                    </div>
+
+                </div>
+
+                <div class="dots">
+                    ● ● ●
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- ======================
+             HỌC VẤN VÀ ĐỊNH HƯỚNG
+        ====================== -->
+
+        <section class="extra wrap" id="education">
+
+            <h2 class="section-title">
+                🎓 Học vấn & Định hướng
+            </h2>
+
+            <div class="extra-grid">
+
+                <!-- HỌC VẤN -->
+
+                <div class="extra-card">
+
+                    <h3>📚 Học vấn</h3>
+
+                    <p>
+                        Sinh viên năm nhất ngành
+                        Công nghệ thông tin tại
+                        Trường Đại học Đại Nam,
+                        lớp CNTT 20-01.
+                    </p>
+
+                </div>
+
+                <!-- ĐANG HỌC -->
+
+                <div class="extra-card">
+
+                    <h3>💻 Đang học</h3>
+
+                    <p>
+                        HTML, CSS, JavaScript,
+                        lập trình web cơ bản,
+                        tư duy lập trình và
+                        quản lý mã nguồn.
+                    </p>
+
+                </div>
+
+                <!-- MỤC TIÊU -->
+
+                <div class="extra-card">
+
+                    <h3>🚀 Mục tiêu</h3>
+
+                    <p>
+                        Xây dựng những dự án thực tế,
+                        cải thiện kỹ năng giao diện
+                        và phát triển thành
+                        lập trình viên.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- ======================
+                 LIÊN HỆ
+            ====================== -->
+
+            <h2
+                class="section-title"
+                id="contact">
+
+                📩 Liên hệ với tôi
+
+            </h2>
+
+            <div class="contact">
+
+                <strong>
+                    Đỗ Minh Hiếu
+                </strong>
+
+                <a href="tel:0325466955">
+                    ☎ 0325 466 955
+                </a>
+
+                <a href="mailto:hieuco696@gmail.com">
+                    ✉ hieuco696@gmail.com
+                </a>
+
+                <a
+                    href="https://github.com/hoanghieu696"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    ◉ github.com/hoanghieu696
+
+                </a>
+
+                <button id="copyPhone">
+                    Sao chép số điện thoại
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ======================
+         CHÂN TRANG
+    ====================== -->
+
+    <footer class="footer">
+
+        © 2026 Đỗ Minh Hiếu ·
+        Gaming RGB Portfolio
+
+    </footer>
+
+    <!-- THÔNG BÁO SAO CHÉP -->
+
+    <div id="toast" role="status"></div>
+
+    <!-- ======================
+         JAVASCRIPT
+    ====================== -->
+
+    <script>
+
+        /* =====================
+           1. MENU ĐIỆN THOẠI
+        ===================== */
+
+        const menu =
+            document.getElementById("menu");
+
+        const links =
+            document.getElementById("links");
+
+        menu.addEventListener("click", () => {
+
+            const open =
+                links.classList.toggle("open");
+
+            menu.setAttribute(
+                "aria-expanded",
+                String(open)
+            );
+
+            menu.textContent =
+                open ? "✕" : "☰";
+
+        });
+
+        /* ĐÓNG MENU KHI NHẤN LIÊN KẾT */
+
+        links.querySelectorAll("a").forEach((a) => {
+
+            a.addEventListener("click", () => {
+
+                links.classList.remove("open");
+
+                menu.textContent = "☰";
+
+                menu.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
             });
 
-        }, {
-            threshold: 0.08
         });
 
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
-    });
+        /* =====================
+           2. SAO CHÉP SỐ ĐIỆN THOẠI
+        ===================== */
 
-} else {
+        document.getElementById(
+            "copyPhone"
+        ).addEventListener("click", async () => {
 
-    revealElements.forEach((element) => {
-        element.classList.add("show");
-    });
+            const toast =
+                document.getElementById("toast");
 
-}
+            try {
 
-/* ==========================
-   3. THÔNG TIN LIÊN HỆ
-========================== */
+                await navigator.clipboard.writeText(
+                    "0325466955"
+                );
 
-const contactData = {
+                toast.textContent =
+                    "Đã sao chép 0325466955!";
 
-    phone: {
+            } catch (error) {
 
-        icon: "📞",
+                toast.textContent =
+                    "Số điện thoại: 0325466955";
 
-        label: "SỐ ĐIỆN THOẠI",
-
-        value: "0325 466 955",
-
-        description:
-            "Bạn có thể sao chép hoặc gọi trực tiếp.",
-
-        link: "tel:0325466955",
-
-        linkText: "📞 Gọi ngay",
-
-        copyValue: "0325466955"
-
-    },
-
-    github: {
-
-        icon: "💻",
-
-        label: "TÀI KHOẢN GITHUB",
-
-        value: "github.com/hoanghieu696",
-
-        description:
-            "Xem mã nguồn và các dự án của tôi.",
-
-        link:
-            "https://github.com/hoanghieu696",
-
-        linkText: "🚀 Mở GitHub",
-
-        copyValue:
-            "https://github.com/hoanghieu696"
-
-    }
-
-};
-
-let currentContact = "phone";
-
-/* ==========================
-   4. NHẤN SỐ ĐIỆN THOẠI
-      HOẶC GITHUB
-========================== */
-
-function showContact(type) {
-
-    const data = contactData[type];
-
-    if (!data) return;
-
-    currentContact = type;
-
-    document.getElementById(
-        "contactIcon"
-    ).textContent = data.icon;
-
-    document.getElementById(
-        "contactLabel"
-    ).textContent = data.label;
-
-    document.getElementById(
-        "contactValue"
-    ).textContent = data.value;
-
-    document.getElementById(
-        "contactDescription"
-    ).textContent = data.description;
-
-    const contactLink =
-        document.getElementById("contactLink");
-
-    contactLink.href = data.link;
-    contactLink.textContent = data.linkText;
-
-    if (type === "github") {
-
-        contactLink.target = "_blank";
-
-        contactLink.rel =
-            "noopener noreferrer";
-
-    } else {
-
-        contactLink.removeAttribute("target");
-        contactLink.removeAttribute("rel");
-
-    }
-
-    const phoneButton =
-        document.getElementById("phoneButton");
-
-    const githubButton =
-        document.getElementById("githubButton");
-
-    phoneButton.classList.toggle(
-        "active",
-        type === "phone"
-    );
-
-    githubButton.classList.toggle(
-        "active",
-        type === "github"
-    );
-
-    phoneButton.setAttribute(
-        "aria-pressed",
-        String(type === "phone")
-    );
-
-    githubButton.setAttribute(
-        "aria-pressed",
-        String(type === "github")
-    );
-
-    document.getElementById(
-        "copyMessage"
-    ).textContent = "";
-
-}
-
-/* ==========================
-   5. SAO CHÉP THÔNG TIN
-========================== */
-
-async function copyContact() {
-
-    const value =
-        contactData[currentContact].copyValue;
-
-    const message =
-        document.getElementById("copyMessage");
-
-    try {
-
-        if (
-            navigator.clipboard &&
-            window.isSecureContext
-        ) {
-
-            await navigator.clipboard.writeText(value);
-
-        } else {
-
-            const input =
-                document.createElement("textarea");
-
-            input.value = value;
-
-            input.style.position = "fixed";
-            input.style.opacity = "0";
-
-            document.body.appendChild(input);
-
-            input.select();
-
-            const success =
-                document.execCommand("copy");
-
-            input.remove();
-
-            if (!success) {
-                throw new Error("Copy failed");
             }
 
-        }
+            toast.classList.add("show");
 
-        message.textContent =
-            "✓ Đã sao chép thành công!";
+            setTimeout(() => {
 
-    } catch (error) {
+                toast.classList.remove("show");
 
-        message.textContent =
-            "Không thể sao chép tự động. " +
-            "Hãy chọn và sao chép thông tin bên trên.";
+            }, 2800);
 
-    }
-}
+        });
 
-/* ==========================
-   6. MENU ĐIỆN THOẠI
-========================== */
-
-const menuToggle =
-    document.getElementById("menuToggle");
-
-const navMenu =
-    document.getElementById("navMenu");
-
-menuToggle.addEventListener("click", () => {
-
-    const isOpen =
-        navMenu.classList.toggle("open");
-
-    menuToggle.textContent =
-        isOpen ? "✕" : "☰";
-
-    menuToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-    );
-
-});
-
-const menuLinks =
-    document.querySelectorAll("#navMenu a");
-
-menuLinks.forEach((link) => {
-
-    link.addEventListener("click", () => {
-
-        navMenu.classList.remove("open");
-
-        menuToggle.textContent = "☰";
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    });
-
-});
-
-/* ==========================
-   7. THANH TIẾN ĐỘ CUỘN
-========================== */
-
-const progressBar =
-    document.getElementById("progressBar");
-
-function updateProgress() {
-
-    const scrollTop = window.scrollY;
-
-    const documentHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    let progress = 0;
-
-    if (documentHeight > 0) {
-
-        progress =
-            (scrollTop / documentHeight) * 100;
-
-    }
-
-    progressBar.style.width =
-        progress + "%";
-}
-
-window.addEventListener(
-    "scroll",
-    updateProgress,
-    { passive: true }
-);
-
-updateProgress();
-
-</script>
+    </script>
 
 </body>
 </html>
