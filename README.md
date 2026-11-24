@@ -167,3 +167,19 @@ Nếu cổng `8080` đang được sử dụng, đổi phần `8080:80` thành m
 - **Mã nguồn dự án:** [github.com/hoanghieu696/CV](https://github.com/hoanghieu696/CV).
 
 Trước khi công khai hoặc sử dụng nội dung cho mục đích khác, hãy xác nhận và cập nhật thông tin liên hệ trong `index.html`.
+
+## Triển khai website
+
+- Repository: https://github.com/hoanghieu696/CV
+- Website: https://hoanghieu696.github.io/CV/
+- Nền tảng triển khai: GitHub Pages
+- Nhánh triển khai: main
+
+## Kiểm thử
+
+- W3C Nu HTML Checker: 0 lỗi, 0 cảnh báo đối với file index.html đã sửa.
+- Lighthouse website công khai: Performance 94, Accessibility 100, Best Practices 96, SEO 91 trong lần đo đã ghi nhận.
+- Responsive: đã có ảnh kiểm tra trên máy tính, điện thoại và máy tính bảng.
+- Kiểm thử chức năng: menu điều hướng, liên kết GitHub, điện thoại và email; kết quả chi tiết ghi trong báo cáo.
+
+Lưu ý: Điểm Lighthouse có thể thay đổi giữa các lần đo.
