@@ -19,3 +19,17 @@
 - Nội dung cá nhân, email và hồ sơ mạng xã hội hiện là thông tin mẫu; cần thay bằng thông tin thực tế.
 - Liên kết chi tiết của các dự án và liên kết GitHub, SDT chưa trỏ đến trang đích thực tế.
 - Đây là website tĩnh; chưa có chức năng gửi biểu mẫu, máy chủ ứng dụng, cơ sở dữ liệu hoặc tích hợp API hoạt động.
+## Cập nhật ngày 19/11/2026
+
+### Sửa lỗi
+- Bổ sung dấu chấm phẩy trong CSS.
+- Điều chỉnh vai trò ARIA cho nhóm ticker.
+- Mã hóa khoảng trắng trong đường dẫn ảnh.
+- Chỉnh cấu trúc HTML của vùng panels.
+
+### Kiểm thử
+- W3C Nu HTML Checker: 0 lỗi, 0 cảnh báo
+  trên file index.html sau sửa.
+- Lighthouse GitHub Pages ghi nhận:
+  Performance 94, Accessibility 100,
+  Best Practices 96, SEO 91.
